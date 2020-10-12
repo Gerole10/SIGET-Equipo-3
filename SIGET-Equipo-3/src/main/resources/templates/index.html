@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tareas</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/update/0" class="btn btn-primary">Agregar</a>
+		</div>
+		<h2 th:if="${list.isEmpty()}">No hay tareas</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Tareas</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Descripcion</th>
+						<th>Acabada</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tarea : ${list}">
+						<td th:text="${tarea.id}">
+						<td th:text="${tarea.descripcion}">
+						<td th:text="${tarea.acabada}">
+						<td><a class="btn btn-info" th:href="@{/update/{id}(id=${tarea.databaseId})}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${tarea.databaseId})}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
