@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Personas</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<br>
+		<h2>Agregar Tarea</h2>
+		<form action="#" th:action="@{/update}" th:object="${tarea}"
+			method="post">
+			<div class="form-group">
+				<label for="id">ID</label> <input type="text"
+					class="form-control" id="id" th:field="*{id}" name="id">
+			</div>
+			<input type="hidden" th:field="*{id}" name="id" id="id">
+			<div class="form-group">
+				<label for="id">Apellido</label> <input type="text"
+					class="form-control" id="descripcion" th:field="*{descripcion}"
+					name="descripcion">
+			</div>
+
+			<div class="form-group">
+				<label for="id">Acabada</label> <input type="boolean"
+					class="form-control" id="acabada" th:field="*{acabada}"
+					name="acabada">
+			</div>
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>
