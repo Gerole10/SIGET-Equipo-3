@@ -12,7 +12,7 @@ public class SigetEquipo3Application {
 		SpringApplication.run(SigetEquipo3Application.class, args);	
 		AgenteBD agente;
 		agente = new AgenteBD();
-		boolean ok=agente.insertar("Esto es un ejemplo");
+		boolean ok=agente.insertar("Esto es un ejemplo2");
 		if(ok) {
 		System.out.println("Inserción realizada con éxito");
 		} else {
