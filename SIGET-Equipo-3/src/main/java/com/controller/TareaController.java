@@ -25,10 +25,10 @@ public class TareaController {
 	
 	
 	@GetMapping("/update/{id}")
-	public String showSave(@PathVariable("id") String id , Model model) {
-		if(id != "0") {
-			model.addAttribute("tarea", serv.findTareaById(id));
-			System.out.println(id);
+	public String showUpdate(@PathVariable/*("id")*/ String id , Model model) {
+		if(serv.findTareaById(id).isPresent()) {
+			model.addAttribute("tarea", serv.findTareaById(id).get());
+			//System.out.println(id);
 		}else {
 			model.addAttribute("tarea", new Tarea());
 		}
@@ -36,7 +36,7 @@ public class TareaController {
 	}
 	
 	@PostMapping("/update")
-	public String save(Tarea tarea, Model model) {
+	public String update(Tarea tarea, Model model) {
 		serv.updateTarea(tarea);
 		return "redirect:/";
 	}
