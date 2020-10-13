@@ -1,5 +1,0 @@
-language: java
-
-script:
-    - cd SIGET-Equipo-3
-    - mvn test
