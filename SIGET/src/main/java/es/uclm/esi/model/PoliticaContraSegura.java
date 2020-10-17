@@ -67,4 +67,17 @@ public class PoliticaContraSegura {
 		return false;
 	}
 	
+	/**
+	 * Metodo para comprobar que tiene, al menos, una minúscula
+	 * @author German
+	 * @param String
+	 * @return boolean
+	 */
+		
+	public static boolean minuscula(String contra) {
+		for(int i = 0; i < contra.length(); i++)
+			if(Character.isLowerCase(contra.charAt(i)))
+				return true;
+		return false;
+	}
 }
