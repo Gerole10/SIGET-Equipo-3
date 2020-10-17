@@ -1,5 +1,9 @@
 package es.uclm.esi.model;
 
+import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * La clase contiene distintas comprobaciones para la contrasena. Se ha programado de tal manera que se puedan ir llamando
  * a los métodos de uno en uno, devolviendo true en caso de que cumplan los requisitos y false en caso de que no para así
@@ -78,6 +82,20 @@ public class PoliticaContraSegura {
 		for(int i = 0; i < contra.length(); i++)
 			if(Character.isLowerCase(contra.charAt(i)))
 				return true;
+		return false;
+	}
+	
+	/**
+	 * Metodo para comprobar que solo tiene caracteres alfanumericos sin espacios.
+	 * En caso de querer espacios podría usar isAlphanumericSpace().
+	 * @author German
+	 * @param String
+	 * @return boolean
+	 */
+	
+	public static boolean alfanum(String contra) {
+        if(StringUtils.isAlphanumeric(contra))
+        	return true;
 		return false;
 	}
 }
