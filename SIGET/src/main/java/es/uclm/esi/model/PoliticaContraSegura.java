@@ -24,10 +24,33 @@ public class PoliticaContraSegura {
 	}
 	
 	/**
-	 * Metodo para comprobar que la contrasena tiene, al menos, un número, una letra mayúscula y una letra minúscula
+	 * Metodo para comprobar que la contrasena tiene, al menos, un número
 	 * @author German
 	 * @param String
 	 * @return boolean
 	 */
+	
+	public boolean numero(String contra) {
+		for(int i = 0; i < contra.length(); i++) {
+			if(esNumerico(String.valueOf(contra.charAt(i))))
+				return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Metodo para comprobar si es numerico
+	 * @param String
+	 * @return boolean
+	 */
+	
+	public static boolean esNumerico(String str) {
+	    try {
+	        Double.parseDouble(str);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
 	
 }
