@@ -17,7 +17,7 @@ public class PoliticaContraSegura {
 	 * @return boolean
 	 */
 	
-	public boolean caracteres(String contra) {
+	public static boolean caracteres(String contra) {
 		if(contra.length() > 8)
 			return true;
 		return false;
@@ -30,7 +30,7 @@ public class PoliticaContraSegura {
 	 * @return boolean
 	 */
 	
-	public boolean numero(String contra) {
+	public static boolean numero(String contra) {
 		for(int i = 0; i < contra.length(); i++) {
 			if(esNumerico(String.valueOf(contra.charAt(i))))
 				return true;
@@ -51,6 +51,20 @@ public class PoliticaContraSegura {
 	        return false;
 	    }
 	    return true;
+	}
+	
+	/**
+	 * Metodo para comprobar que tiene, al menos, una mayuscula
+	 * @author German
+	 * @param String
+	 * @return boolean
+	 */
+	
+	public static boolean mayuscula(String contra) {
+		for(int i = 0; i < contra.length(); i++)
+			if(Character.isUpperCase(contra.charAt(i))) 
+				return true;
+		return false;
 	}
 	
 }
