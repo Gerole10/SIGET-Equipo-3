@@ -1,12 +1,9 @@
 package es.uclm.esi.model;
-
-import java.util.regex.Pattern;
-
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * La clase contiene distintas comprobaciones para la contrasena. Se ha programado de tal manera que se puedan ir llamando
- * a los métodos de uno en uno, devolviendo true en caso de que cumplan los requisitos y false en caso de que no para así
+ * a los metodos de uno en uno, devolviendo true en caso de que cumplan los requisitos y false en caso de que no para asi
  * poder informar del fallo concreto de la contrasena al usuario.
  * @author German
  *
@@ -17,8 +14,8 @@ public class PoliticaContraSegura {
 	/**
 	 * Metodo para comprobar que la contrasena tiene más de 8 caracteres
 	 * @author German
-	 * @param String
-	 * @return boolean
+	 * @param String contrasena a comprobar
+	 * @return boolean, true en caso de que cumpla el requisito, false en caso contrario
 	 */
 	
 	public static boolean caracteres(String contra) {
@@ -30,8 +27,8 @@ public class PoliticaContraSegura {
 	/**
 	 * Metodo para comprobar que la contrasena tiene, al menos, un número
 	 * @author German
-	 * @param String
-	 * @return boolean
+	 * @param String contrasena a comprobar
+	 * @return boolean, true en caso de que cumpla el requisito, false en caso contrario
 	 */
 	
 	public static boolean numero(String contra) {
@@ -44,8 +41,8 @@ public class PoliticaContraSegura {
 	
 	/**
 	 * Metodo para comprobar si es numerico
-	 * @param String
-	 * @return boolean
+	 * @param String contrasena a comprobar
+	 * @return boolean, true en caso de que cumpla el requisito, false en caso contrario
 	 */
 	
 	public static boolean esNumerico(String str) {
@@ -60,8 +57,8 @@ public class PoliticaContraSegura {
 	/**
 	 * Metodo para comprobar que tiene, al menos, una mayuscula
 	 * @author German
-	 * @param String
-	 * @return boolean
+	 * @param String contrasena a comprobar
+	 * @return boolean, true en caso de que cumpla el requisito, false en caso contrario
 	 */
 	
 	public static boolean mayuscula(String contra) {
@@ -74,8 +71,8 @@ public class PoliticaContraSegura {
 	/**
 	 * Metodo para comprobar que tiene, al menos, una minúscula
 	 * @author German
-	 * @param String
-	 * @return boolean
+	 * @param String contrasena a comprobar
+	 * @return boolean, true en caso de que cumpla el requisito, false en caso contrario
 	 */
 		
 	public static boolean minuscula(String contra) {
@@ -89,8 +86,8 @@ public class PoliticaContraSegura {
 	 * Metodo para comprobar que solo tiene caracteres alfanumericos sin espacios.
 	 * En caso de querer espacios podría usar isAlphanumericSpace().
 	 * @author German
-	 * @param String
-	 * @return boolean
+	 * @param String contrasena a comprobar
+	 * @return boolean, true en caso de que cumpla el requisito, false en caso contrario
 	 */
 	
 	public static boolean alfanum(String contra) {
