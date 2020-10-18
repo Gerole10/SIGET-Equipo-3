@@ -3,6 +3,9 @@ package es.uclm.esi.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection= "reunion")
 public class Reunion {
 	
 	private String titulo;
