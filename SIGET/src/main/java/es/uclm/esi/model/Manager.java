@@ -1,8 +1,9 @@
 package es.uclm.esi.model;
 
 import java.time.LocalDate;
+// import java.util.Collection;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 import es.uclm.esi.model.Manager;
 
@@ -20,11 +21,10 @@ public class Manager {
 		return ManagerHolder.singleton;
 	}
 	
-	/*
-	public JSONArray getCalendarioPersonal(LocalDate fechaInferior, LocalDate fechaSuperior) {
-		JSONArray calendario = new JSONArray();
+	public JSONObject getCalendarioPersonal(LocalDate fechaInferior, LocalDate fechaSuperior) {
+		// Collection<Reunion> reuniones = ReunionesDAO.getReuniones();
+		JSONObject calendario = new JSONObject();
 		return calendario;
 	}
-	*/
 
 }

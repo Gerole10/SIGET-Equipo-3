@@ -3,21 +3,33 @@ package es.uclm.esi.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection= "reunion")
 public class Reunion {
 	
+	@Id
+	private int id;
 	private String titulo;
 	private LocalDate fecha;
 	private LocalTime hora;
 	private String[] asistentes;
 	
-	public Reunion(String titulo, LocalDate fecha, LocalTime hora, String[] asistentes) {
+	public Reunion(int id, String titulo, LocalDate fecha, LocalTime hora, String[] asistentes) {
+		this.id=id;
 		this.titulo=titulo;
 		this.fecha=fecha;
 		this.hora=hora;
 		this.asistentes=asistentes;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
