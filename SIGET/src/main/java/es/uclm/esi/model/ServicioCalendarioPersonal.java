@@ -4,28 +4,18 @@ import java.time.LocalDate;
 // import java.util.Collection;
 
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
-import es.uclm.esi.model.Manager;
+import es.uclm.esi.model.ServicioCalendarioPersonal;
 
 /**
  * 
  * @author Víctor
  * Clase para gestionar la petición del controlador (obtener calendario personal) 
  */
-public class Manager {
-	
-	private Manager() {
-		// Vacío
-	}
-	
-	private static class ManagerHolder {
-		static Manager singleton=new Manager();
-	}
-	
-	public static Manager get() {
-		return ManagerHolder.singleton;
-	}
-	
+@Service
+public class ServicioCalendarioPersonal {
+
 	/**
 	 * 
 	 * @param fechaInferior
@@ -33,7 +23,7 @@ public class Manager {
 	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
 	 */
 	public JSONObject getCalendarioPersonal(LocalDate fechaInferior, LocalDate fechaSuperior) {
-		// Collection<Reunion> reuniones = ReunionesDAO.getReuniones();
+		// Collection<Reunion> reuniones = RepositoryReuniones.getReuniones();
 		JSONObject calendario = new JSONObject();
 		return calendario;
 	}

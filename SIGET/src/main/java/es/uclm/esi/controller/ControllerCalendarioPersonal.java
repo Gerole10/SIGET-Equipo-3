@@ -4,11 +4,12 @@ import java.time.LocalDate;
 import java.util.Map;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uclm.esi.model.Manager;
+import es.uclm.esi.model.ServicioCalendarioPersonal;
 
 /**
  * 
@@ -18,6 +19,8 @@ import es.uclm.esi.model.Manager;
 @RestController
 public class ControllerCalendarioPersonal {
 	
+	@Autowired
+	ServicioCalendarioPersonal servcp;
 	/**
 	 * 
 	 * @param fechasLimite
@@ -26,9 +29,9 @@ public class ControllerCalendarioPersonal {
 	@GetMapping("/getCalendarioPersonal")
 	public JSONObject getCalendarioPersonal(@RequestBody Map<String, Object> fechasLimite) {
 		JSONObject jso = new JSONObject(fechasLimite);
-		LocalDate fechaInferior = (LocalDate) jso.get("fechaSuperior");
+		LocalDate fechaInferior = (LocalDate) jso.get("fechaInferior");
 		LocalDate fechaSuperior = (LocalDate) jso.get("fechaSuperior");
-		return Manager.get().getCalendarioPersonal(fechaInferior, fechaSuperior);
+		return servcp.getCalendarioPersonal(fechaInferior, fechaSuperior);
 	}
 
 }
