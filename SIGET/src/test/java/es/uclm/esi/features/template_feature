@@ -1,16 +1,4 @@
-Feature: Login
-
-  Scenario: Buen Login
-    Given I have basic authentication credentials "admin" and "Admin123"
-    When I GET $resource
-    Then the welcome page is shown
-
-  Scenario: Mal Login
-    Given the username is "test" and the password is "incorrect"
-    When the login button is clicked
-    Then an error should be shown
-    
-    GIVEN:
+GIVEN:
     I set (.*) header to (.*)
     I set body to (.*)
     I pipe contents of file (.*) to body
