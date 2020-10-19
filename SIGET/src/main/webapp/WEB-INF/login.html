@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>HTML Login</title>
 <meta charset="ISO-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -43,7 +44,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
     </div>
     <div class="grad"></div>
         <div class="header">
-        <div style="color:#FFFFFF;font-family: cursive, 'Comic Sans MS', sans-serif;"align = center><H1>Bienvenid@ a SIGET </H1></div>
+        <div style="color:#FFFFFF;"align = center><H1>Bienvenid@ a SIGET </H1></div>
         <div style="color:#EAF6F4; font-style: italic;"align = center><H2> Su agenda virtual </H2></div>
     </div>
     <br>
@@ -64,22 +65,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
             <div class="col-sm-12 col-centered">
                 <!-- hidden para que salga por defecto login -->
                  <div id="divLogin" style="display:hidden"> 
-                    <i class="fa fa-id-card-o"></i>
+                    <em class="fa fa-id-card-o"></em>
                     <input type="text" id="loginUserNif" placeholder="nif"><br>
-                    <i class="fa fa-key icon"></i>
+                    <em class="fa fa-key icon"></em>
                     <input type="password" id="loginUserPassword" placeholder="password"><br>
                     <button onclick="LogIn()" id="btnLogin">LogIn</button><br>
                 </div> 
                 <div id="divRegistro" style="display:none">
-                    <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    <em class="fa fa-user fa-lg fa-fw" aria-hidden="true"></em>
                     <input type="text" placeholder="user full name" id="SignUpName"><br>
-                    <i class="fa fa-id-card-o"></i>
+                    <em class="fa fa-id-card-o"></em>
                     <input type="text" placeholder="nif" id="SignUpNif"><br>
-                    <i class="fa fa-envelope icon"></i>
+                    <em class="fa fa-envelope icon"></em>
                     <input type="email" placeholder="email" id="SignUpEmail"><br>
-                    <i class="fa fa-key icon"></i>
+                    <em class="fa fa-key icon"></em>
                     <input type="password" placeholder="password" id="pwd1"><br>
-                    <i class="fa fa-key icon"></i>
+                    <em class="fa fa-key icon"></em>
                     <input type="password" placeholder="repeat the password" id="pwd2"><br>
                     <button onclick="SignUp()" id="registroBtn">SignUp</button><br>
                 </div>
