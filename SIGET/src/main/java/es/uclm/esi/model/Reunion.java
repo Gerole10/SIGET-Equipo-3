@@ -6,6 +6,11 @@ import java.time.LocalTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * 
+ * @author Víctor
+ * Clase de dominio que usaremos para instanciar reuniones
+ */
 @Document(collection= "reunion")
 public class Reunion {
 	

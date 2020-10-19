@@ -10,10 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.uclm.esi.model.Manager;
 
+/**
+ * 
+ * @author Víctor
+ * Clase para recepción de mensajes http relacionados con obtener el calendario personal
+ */
 @RestController
 public class ControllerCalendarioPersonal {
 	
-
+	/**
+	 * 
+	 * @param fechasLimite
+	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
+	 */
 	@GetMapping("/getCalendarioPersonal")
 	public JSONObject getCalendarioPersonal(@RequestBody Map<String, Object> fechasLimite) {
 		JSONObject jso = new JSONObject(fechasLimite);
