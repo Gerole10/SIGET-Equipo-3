@@ -1,34 +1,36 @@
 package es.uclm.esi.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
-@Document(collection = "role")
+@Document(collection = "roles")
 public class Role {
-    
-    @Id
-    private String id;
-    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-    
-    private String role;
+  @Id
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  private ERole name;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public Role() {
 
-    public String getRole() {
-        return role;
-    }
+  }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-    
+  public Role(ERole name) {
+    this.name = name;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public ERole getName() {
+    return name;
+  }
+
+  public void setName(ERole name) {
+    this.name = name;
+  }
 }
