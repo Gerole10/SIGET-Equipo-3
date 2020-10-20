@@ -9,8 +9,11 @@
 }
 /*div principal del calendario*/
 #calendario {
-	border: 2px double black;
-	max-width: 536px;
+	border-color: #f0b19e;
+	border-width: 4px;
+	border-style:solid;
+	border-radius: 14px;
+	max-width: 470px;
 	background-color: #fffafa;
 	text-align: center;
 	margin-left: 100px;
@@ -18,18 +21,20 @@
 /*tabla del calendario*/
 #diasc {
 	border-collapse: separate;
-	border-spacing: 4px;
+	border-spacing: 2px;
 }
 
 #diasc th, #diasc td {
 	font: normal 14pt arial;
-	width: 65px;
-	height: 60px;
+	width: 55px;
+	height: 50px;
+	border: 2px double #fffafa;
+	border-radius: 5px;
 }
 
 
 #diasc th {
-	color: #990099;
+	color: white;
 	background-color: #5ecdec
 }
 
@@ -37,17 +42,24 @@
 	color: #492736;
 	background-color: #9bf5ff
 }
+#diasc tr td.dia:hover {
+		    cursor: pointer;
+			font: bold 16pt arial;
+			border: 2px double coral;
+			text-decoration:
+	}
+
 /*lÃ­nea de la fecha actual*/
 #fechaactual {
 	font: bold 12pt arial;
 	padding: 0.4em
 }
 
-#fechaactual i {
+#fechaactual em {
 	cursor: pointer;
 }
 
-#fechaactual i:hover {
+#fechaactual em:hover {
 	color: blue;
 	text-decoration: underline;
 }
@@ -104,7 +116,7 @@
 	padding: 0.2em;
 }
 
-body{background-color: #4642B8;padding: 20px;font-family: Arial;}
+body{background-color: #4642B8;padding: 15px;font-family: Arial;}
 		
 		#menu{
 			background-color: #000;
