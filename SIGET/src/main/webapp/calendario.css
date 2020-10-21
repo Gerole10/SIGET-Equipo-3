@@ -2,6 +2,7 @@
 * {
 	margin: auto;
 }
+
 /*cabecera de la página*/
 #titulo {
 	margin-left: 100px;
@@ -17,6 +18,7 @@
 	background-color: #fffafa;
 	text-align: center;
 	margin-left: 50px;
+	margin-bottom: 50px;
 	float:left;
 }
 /*tabla del calendario*/
@@ -123,9 +125,11 @@
 	border-style:solid;
 	max-width: 250px;
 	height:500px;
+	max-height:500px;
 	background-color: #fffafa;
 	text-align: center;
 	margin-left: 20px;
+	margin-bottom: 20px;
 	float:left;
 	overflow-y: scroll;
 }
@@ -153,33 +157,26 @@
 	border-color: #f0b19e;
 	border-width: 4px;
 	border-style:solid;
-	max-width:650px;
+	max-height:500px;
 	height:500px;
-	width:650px;
+	max-width:650px;
 	background-color: #fffafa;
-	text-align: center;
+	text-align: left;
 	margin-left: 20px;
 	margin-right: 20px;
 	float:left;
 }
 
-#tituloYhora {
-	font: bold 12pt arial;
-	padding: 15px 5px 5px 5px;
+#titureunion, #horareunion, #descripcion, #asistentes {
+	margin: 15px 15px 0px 15px;
 }
 
-#texthora {
-	margin-left: 20px;
+#texttitulo, #texthora, #textdescripcion, #textasistentes {
+	margin-left: 15px;
 }
 
-#cajaDescripcion, #cajaAsistentes {
-	float: left; 
-	font: bold 12pt arial; 
-	padding: 10px 10px 10px 10px;
-}
 #descripcion, #asistentes {
 		resize: none;
-		margin-left: 14px;
 		font: normal 11pt arial;
 }
 
