@@ -1,12 +1,9 @@
 package es.uclm.esi.model;
 
-import java.time.LocalDate;
-// import java.util.Collection;
-
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import es.uclm.esi.model.ServicioCalendarioPersonal;
+import es.uclm.esi.repository.RepositoryCalendarioPersonal;
 
 /**
  * 
@@ -22,10 +19,17 @@ public class ServicioCalendarioPersonal {
 	 * @param fechaSuperior
 	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
 	 */
-	public JSONObject getCalendarioPersonal(LocalDate fechaInferior, LocalDate fechaSuperior) {
-		// Collection<Reunion> reuniones = RepositoryReuniones.getReuniones();
+	public JSONObject getCalendarioPersonal(int mes, int ano) {
+		RepositoryCalendarioPersonal rcp;
+
 		JSONObject calendario = new JSONObject();
 		return calendario;
 	}
+	
+	/*
+	public JSONObject getUsuarioLogeado() {
+		
+	}
+	*/
 
 }

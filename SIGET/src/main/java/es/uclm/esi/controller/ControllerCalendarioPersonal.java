@@ -1,6 +1,5 @@
 package es.uclm.esi.controller;
 
-import java.time.LocalDate;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -20,18 +19,25 @@ import es.uclm.esi.model.ServicioCalendarioPersonal;
 public class ControllerCalendarioPersonal {
 	
 	@Autowired
-	ServicioCalendarioPersonal servcp;
+	private ServicioCalendarioPersonal servcp;
 	/**
 	 * 
 	 * @param fechasLimite
 	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
 	 */
 	@GetMapping("/getCalendarioPersonal")
-	public JSONObject getCalendarioPersonal(@RequestBody Map<String, Object> fechasLimite) {
-		JSONObject jso = new JSONObject(fechasLimite);
-		LocalDate fechaInferior = (LocalDate) jso.get("fechaInferior");
-		LocalDate fechaSuperior = (LocalDate) jso.get("fechaSuperior");
-		return servcp.getCalendarioPersonal(fechaInferior, fechaSuperior);
+	public JSONObject getCalendarioPersonal(@RequestBody Map<String, Object> fecha) {
+		JSONObject jso = new JSONObject(fecha);
+		int mes = jso.getInt("mes");
+		int ano = jso.getInt("ano");
+		return servcp.getCalendarioPersonal(mes, ano);
 	}
+	
+	/*
+	@GetMapping("/getUsuarioLogeado")
+	public JSONObject getUsuarioLogeado() {
+		//return servcp.getUsuarioLogeado();
+	}
+	*/
 
 }
