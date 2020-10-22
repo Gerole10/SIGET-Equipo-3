@@ -165,14 +165,16 @@
 	margin-left: 20px;
 	margin-right: 20px;
 	float:left;
+
 }
 
-#titureunion, #horareunion, #descripcion, #asistentes {
-	margin: 15px 15px 0px 15px;
+#inputtitulo, #inputhora, #inputdescripcion, #inputasistentes {
+ margin: 15px;
+font: bold 11pt arial; 
 }
 
-#texttitulo, #texthora, #textdescripcion, #textasistentes {
-	margin-left: 15px;
+#horareunion{
+	margin-left:6px;
 }
 
 #descripcion, #asistentes {
