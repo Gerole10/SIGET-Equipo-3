@@ -8,90 +8,96 @@
 <script type="text/javascript" src="calendario.js"></script>
 </head>
 <body>
-<div id="menu">
+	<div id="menu">
+		<div>
 		<ul>
 			<li><a href="#">Convocar Reunión</a></li>
 			<li><a href="#">Modificar Reunión</a></li>
 			<li class="item-r"><a href="#">Salir</a></li>
 		</ul>
+		</div>
 	</div>
-<br/><br/>
-<div id=todo>
-<div id="calendario">
-  <div id="anterior" onclick="mesantes()"></div>
-  <div id="posterior" onclick="mesdespues()"></div>
-  <h2 id="titulos"></h2>
-  <table id="diasc">
-    <tr id="fila0"><th scope="lun"></th><th scope="Mar"></th><th scope="Mie"></th><th scope="Jue"></th><th scope="Vie"></th><th scope="Sab"></th><th scope="Dom"></th></tr>
-    <tr id="fila1"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
-    <tr id="fila2"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
-    <tr id="fila3"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
-    <tr id="fila4"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
-    <tr id="fila5"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
-    <tr id="fila6"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
-  </table>
-  <div id="fechaactual"><em onclick="actualizar()">HOY: </em></div>
-  <div id="buscafecha">
-    <form action="#" name="buscar">
-      <p>Buscar: MES
-        <select name="buscames">
-          <option value="0">Enero</option>
-          <option value="1">Febrero</option>
-          <option value="2">Marzo</option>
-          <option value="3">Abril</option>
-          <option value="4">Mayo</option>
-          <option value="5">Junio</option>
-          <option value="6">Julio</option>
-          <option value="7">Agosto</option>
-          <option value="8">Septiembre</option>
-          <option value="9">Octubre</option>
-          <option value="10">Noviembre</option>
-          <option value="11">Diciembre</option>
-        </select>
-          AÑO 
-        <input type="text" name="buscaanno" maxlength="4" size="4" />
+	<br>
+	<div id="cajas">
+	<div id="calendario">
+		<div id="anterior" onclick="mesantes()"></div>
+		<div id="posterior" onclick="mesdespues()"></div>
+		<h2 id="titulos"></h2>
+		<table id="diasc">
+			<tr id="fila0"><th scope="lun"></th><th scope="Mar"></th><th scope="Mie"></th><th scope="Jue"></th><th scope="Vie"></th><th scope="Sab"></th><th scope="Dom"></th></tr>
+			<tr id="fila1"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
+			<tr id="fila2"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
+			<tr id="fila3"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
+			<tr id="fila4"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
+			<tr id="fila5"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
+			<tr id="fila6"><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td><td class="dia"></td></tr>
+		</table>
+		<div id="fechaactual"><em onclick="actualizar()">HOY: </em></div>
+		<div id="buscafecha">
+		<form action="#" name="buscar">
+			<p>Buscar: MES
+				<select name="buscames">
+					<option value="0">Enero</option>
+					<option value="1">Febrero</option>
+					<option value="2">Marzo</option>
+					<option value="3">Abril</option>
+					<option value="4">Mayo</option>
+					<option value="5">Junio</option>
+					<option value="6">Julio</option>
+					<option value="7">Agosto</option>
+					<option value="8">Septiembre</option>
+					<option value="9">Octubre</option>
+					<option value="10">Noviembre</option>
+					<option value="11">Diciembre</option>
+				</select>
+				AÑO 
+				<input type="text" name="buscaanno" maxlength="4" size="4" />
       
-        <input type="button" value="BUSCAR" onclick="mifecha()" />
-      </p>
-    </form>
-  </div>
-</div>
-<div id="reuniones">
-	<div id="titulosreunion">
+				<input type="button" value="BUSCAR" onclick="mifecha()" />
+			</p>
+		</form>
+		</div>
+	</div>
+	
+	<div id="reuniones">
+		<div id="titulosreunion">
+			<form>
+				<div id="reunionYhora">
+					<label id="reunion">Esto es una prueba de una reunion para gestions de proyectos</label>
+					<label id="horasreunion">16:30</label><br>
+				</div>
+				<div id="reunionYhora">
+					<label id="reunion">Esto es una prueba de gestions de proyectos</label>
+					<label id="horasreunion">16:30</label><br>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="cajainforeuniones">
 		<form>
-			<div id="reunionYhora">
-				<label id="reunion">Esto es una prueba de una reunion para gestions de proyectos</label>
-				<label id="horasreunion">16:30</label><br>
+			<div id="inputtitulo">
+				<label id="texttitulo">Titulo:</label>
+				<input type="text" id="titureunion" name="titureunion" maxlength="80" size="35" readonly>
+				
 			</div>
-			<div id="reunionYhora">
-				<label id="reunion">Esto es una prueba de gestions de proyectos</label>
-				<label id="horasreunion">16:30</label><br>
+			<div id="inputhora">
+				<label id="texthora">Hora:</label>
+				<input type="text" id="horareunion" name="horareunion" maxlength="5" size="4" readonly>
+			</div>
+			<div id="inputdescripcion">
+				<label id="textdescripcion">Descripción:</label><br>
+				<textarea id="descripcion" name="descripcion" rows="7" cols="40" readonly></textarea><br>
+			</div>
+			<div id="inputasistentes">
+				<label id="textasistentes">Asistentes:</label><br>
+				<textarea id="asistentes" name="descripcion" rows="7" cols="40" readonly></textarea>
+			</div>
+			<div id="inputbotones" align = center>
+				<a class="botonAceptar">Aceptar</a>
+				<a class="botonRechazar">Rechazar</a>
 			</div>
 		</form>
 	</div>
-</div>
-<div id="cajainforeuniones">
-	<form>
-		<div id="inputtitulo">
-			<label id="texttitulo">Titulo:</label>
-			<input type="text" id="titureunion" name="titureunion" maxlength="80" size="35" readonly>
-			
-		</div>
-		<div id="inputhora">
-			<label id="texthora">Hora:</label>
-			<input type="text" id="horareunion" name="horareunion" maxlength="5" size="4" readonly>
-		</div>
-		<div id="inputdescripcion">
-			<label id="textdescripcion">Descripción:</label><br>
-			<textarea id="descripcion" name="descripcion" rows="8" cols="40" readonly></textarea><br>
-		</div>
-		<div id="inputasistentes">
-			<label id="textasistentes">Asistentes:</label><br>
-			<textarea id="asistentes" name="descripcion" rows="8" cols="40" readonly></textarea>
-		</div>
-			
-	</form>
-</div>
-</div>
+	</div>
 </body>
 </html>
