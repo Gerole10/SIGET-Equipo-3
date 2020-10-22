@@ -32,12 +32,5 @@ public class ControllerCalendarioPersonal {
 		int ano = jso.getInt("ano");
 		return servcp.getCalendarioPersonal(mes, ano);
 	}
-	
-	/*
-	@GetMapping("/getUsuarioLogeado")
-	public JSONObject getUsuarioLogeado() {
-		//return servcp.getUsuarioLogeado();
-	}
-	*/
 
 }

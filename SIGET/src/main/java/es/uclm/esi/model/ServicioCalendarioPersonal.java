@@ -25,11 +25,5 @@ public class ServicioCalendarioPersonal {
 		JSONObject calendario = new JSONObject();
 		return calendario;
 	}
-	
-	/*
-	public JSONObject getUsuarioLogeado() {
-		
-	}
-	*/
 
 }
