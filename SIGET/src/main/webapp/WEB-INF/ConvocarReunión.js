@@ -1,14 +1,14 @@
 function ViewModel() {
 	var self = this;
-	self.users = ko.observableArray([]);
+	self.user = ko.observableArray([]); //Array observable con los usuarios de la bbdd
 	
 	
 	getUserNames();
 	
 	function getUserNames() {
-		$.get("getUserNames", function(names) {
-			for (var i=0; i<names.length; i++) {
-				self.users.push(name);
+		$.get("getUser", function(user) {
+			for (var i=0; i<users.length; i++) {
+				self.users.push();
 			}
 		});
 	}

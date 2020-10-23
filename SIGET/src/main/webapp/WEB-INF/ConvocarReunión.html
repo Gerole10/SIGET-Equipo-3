@@ -7,58 +7,68 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-<style>    
-</style>
 </head>
 <body>
-<body style="background-color:#86D5E0;">
-<div style="color:#EAF6F4;"align = left><H3> SIGET </H3></div>
-<div class="body"></div>
-    <body style="background-color:#DAF2F5">
-    <div class="jumbotron text-center" style="background-color:#FFFFFF">    
-    </div>
-    <div class="grad"></div>
-        <div class="header">
-        <div style="color:#FFFFFF;"align = center><H1>Nueva reunion</H1></div>
-        </div>
-    <br>
-<div class="jumbotron text-center" style="background-color:#FFFFFF;"> 
-<div style="float: left; width: 45%">
-    <div id="divGeneral" >    
-                    <div style="float: left; width: 45%">        
-                        <p align="left">Evento:</p>
-                        <input type="text" style="width : 500px; heigth : 20px" id="Event" placeholder="Event Name">
-                        
-                        <div style="float: left; width: 45%">
-	                        <p align="left">Fecha Inicio:</p>
-	                        <input type="date" id="StartDate">
-	                        <p align="left">Fecha Fin:</p>
-                            <input type="date" id="EndDate">
-                        </div>
-                        <div style="float: right; width: 45%">
-                             <p align="left"> Hora Inicio:</p>
-                            <input type="time" id="StartTime">
-                            <p align="left"> Hora Fin:</p>
-                            <input type="time" id="EndTime">
-                        </div>
-                  </div>
-    </div> 
-</div>
-<div style="float: right; width: 45%">
-<div class="jumbotron text-center">
-    Usuarios de Siget: <br>
-    <ul data-bind="foreach : users">
-    <li data-bind = "users: $data"><input type="radio" data-bind="users: username"></input></li>
-    </ul>
-</div>
-</div>
-<div style="clear: both"></div>    
-</div>
-<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script> 
-<script src="ConvocarReunión.js"></script> <!-- invocando archivo ConvocarReunión.js --> 
+<body style="background-color: #86D5E0;">
+	<div style="color: #EAF6F4;" align=left> <H2>SIGET</H2> </div>
+	<div class="body"></div>
+	
+<body style="background-color: #DAF2F5">
+	<div class="jumbotron text-center" style="background-color: #FFFFFF">
+	</div>
+	<div class="grad"></div>
+	<div class="header">
+		<div style="color: #FFFFFF;" align=center>
+			<H1>Nueva reunion</H1>
+		</div>
+	</div>
+	<br>
+	<div class="jumbotron text-center" style="background-color: #FFFFFF;">
+		<div style="float: left; width: 45%">
+			<div id="divGeneral">
+				<div style="float: left; width: 45%">
+					<p align="left">Evento:</p>
+					<label>
+					<input type="text" style="width: 500px; heigth: 20px" id="Event" placeholder="Event Name">
+					</label>
+					<div style="float: left; width: 45%">
+					   <p align="left">Fecha Inicio:</p>
+					   <label>
+						<input type="date" id="StartDate">
+						</label>
+						<p align="left">Fecha Fin:</p>
+						<label>
+						<input type="date" id="EndDate">
+						</label>
+					</div>
+					<div style="float: right; width: 45%">
+						<p align="left">Hora Inicio:</p>
+						<label>
+						<input type="time" id="StartTime">
+						</label>
+						<p align="left">Hora Fin:</p>
+						<label>
+						<input type="time" id="EndTime">
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="float: right; width: 45%">
+			<div class="jumbotron text-center">
+				Usuarios de Siget: <br>
+				<ul data-bind="foreach : user">
+					<li data-bind="foreach: user">
+					<input type="radio" data-bind="user: username"></input></li>
+				</ul>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+	</div>
+	<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+	<script src="ConvocarReunión.js"></script>
+	<!-- invocando archivo ConvocarReunión.js -->
 </body>
 </html>
 
