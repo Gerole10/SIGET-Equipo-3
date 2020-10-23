@@ -1,17 +1,13 @@
 package es.uclm.esi.repository;
 
-import java.util.Collection;
+import java.util.List;
 
-import com.mongodb.client.MongoClient;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import es.uclm.esi.model.Reunion;
 
-public class RepositoryCalendarioPersonal {
+public interface RepositoryCalendarioPersonal extends MongoRepository<Reunion, String> {
 	
-	/*
-	public Collection<Reunion> getReuniones() {
-		
-	}
-	*/
+	List<Reunion> findAll();
 
 }
