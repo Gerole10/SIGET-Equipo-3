@@ -30,29 +30,38 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
     <div id="divGeneral" >    
                     <div style="float: left; width: 45%">        
                         <p align="left">Evento:</p>
-                        <input type="text" style="width : 500px; heigth : 20px" id="Event" placeholder="event"> 
-                        <p align="left">Fecha y Hora de Inicio:</p>
-                        <input type="date"> 
-                        <div style="float: right; width: 45%"> 
-                             <input type="time" >
-                        </div>
-                         <p align="left">Fecha y Hora de Fin:</p>
-                        <input type="date"> 
+                        <input type="text" style="width : 500px; heigth : 20px" id="Event" placeholder="Event Name">
                         
-                        <div style="float: right; width: 45%"> 
-                             <input type="time" >
+                        <div style="float: left; width: 45%">
+	                        <p align="left">Fecha Inicio:</p>
+	                        <input type="date" id="StartDate">
+	                        <p align="left">Fecha Fin:</p>
+                            <input type="date" id="EndDate">
                         </div>
-                    </div>
+                        <div style="float: right; width: 45%">
+                             <p align="left"> Hora Inicio:</p>
+                            <input type="time" id="StartTime">
+                            <p align="left"> Hora Fin:</p>
+                            <input type="time" id="EndTime">
+                        </div>
+                  </div>
     </div> 
 </div>
 <div style="float: right; width: 45%">
-COLUMNA DERECHA
+<div class="jumbotron text-center">
+    Usuarios de Siget: <br>
+    <ul data-bind="foreach : users">
+    <li data-bind = "users: $data"><input type="radio" data-bind="users: $index"></input></li>
+    </ul>
+</div>
 </div>
 <div style="clear: both"></div>    
 </div>
 <script>
 
 </script>
+<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+<script src="ConvocarReunión.js"></script>
 </body>
 </html>
 
