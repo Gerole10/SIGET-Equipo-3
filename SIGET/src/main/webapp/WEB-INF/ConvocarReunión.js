@@ -7,8 +7,8 @@ function ViewModel() {
 	
 	function getUserNames() {
 		$.get("getUser", function(user) {
-			for (var i=0; i<users.length; i++) {
-				self.users.push();
+			for (var i=0; i<user.length; i++) {
+				self.user.push();
 			}
 		});
 	}
