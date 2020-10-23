@@ -6,7 +6,7 @@ function ViewModel() {
 	getUserNames();
 	
 	function getUserNames() {
-		$.get("getUser", function(user) {
+		$.get("getUsers", function(user) {
 			for (var i=0; i<user.length; i++) {
 				self.user.push();
 			}
