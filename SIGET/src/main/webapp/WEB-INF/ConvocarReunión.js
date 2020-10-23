@@ -1,7 +1,6 @@
 function ViewModel() {
 	var self = this;
 	self.users = ko.observableArray([]);
-	self.selecteduser = ko.observable;
 	
 	
 	getUserNames();

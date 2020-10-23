@@ -51,17 +51,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
 <div class="jumbotron text-center">
     Usuarios de Siget: <br>
     <ul data-bind="foreach : users">
-    <li data-bind = "users: $data"><input type="radio" data-bind="users: $index"></input></li>
+    <li data-bind = "users: $data"><input type="radio" data-bind="users: username"></input></li>
     </ul>
 </div>
 </div>
 <div style="clear: both"></div>    
 </div>
-<script>
-
-</script>
-<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
-<script src="ConvocarReunión.js"></script>
+<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script> 
+<script src="ConvocarReunión.js"></script> <!-- invocando archivo ConvocarReunión.js --> 
 </body>
 </html>
 
