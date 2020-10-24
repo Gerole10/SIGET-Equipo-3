@@ -81,6 +81,10 @@ public class Reunion {
 	public String[] getAsistentes() {
 		return asistentes;
 	}
+	
+	public String getAsistente(int index) {
+		return asistentes[index];
+	}
 
 	public void setAsistentes(String[] asistentes) {
 		this.asistentes = asistentes;

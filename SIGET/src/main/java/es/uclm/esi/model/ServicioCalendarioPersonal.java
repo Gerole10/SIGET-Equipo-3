@@ -23,12 +23,21 @@ public class ServicioCalendarioPersonal {
 	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
 	 */
 	public JSONObject getCalendarioPersonal(int mes, int ano) {
-		List<Reunion> reuniones = rcp.findAll();
+		List<Reunion> reuniones = rcp.findAll(); 
 		JSONObject calendario = new JSONObject();
 		for(int i=0; i<reuniones.size(); i++) {
-			if(reuniones.get(i).getAno()==ano && reuniones.get(i).getMes()==mes) {
-				// Filtro de reuniones
+			boolean asiste=false;
+			for(int a=0; a<reuniones.get(i).getAsistentes().length; a++) {
+				/*
+				if(JwtUtils.getUserNameFromJwtToken(token).equals(reuniones.get(i).getAsistente(a))) {
+						asiste=true;
+				}
+				*/
 			}
+			if(reuniones.get(i).getAno()==ano && reuniones.get(i).getMes()==mes && asiste) {
+				calendario.put("reunion"+reuniones.get(i).getId(), reuniones.get(i));
+			}
+			
 		}
 		
 		return calendario;
