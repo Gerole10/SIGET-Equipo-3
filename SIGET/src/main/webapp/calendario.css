@@ -62,7 +62,7 @@
 		    cursor: pointer;
 			font: bold 16pt arial;
 			border: 2px double coral;
-	}
+}
 
 /*línea de la fecha actual*/
 #fechaactual {
@@ -252,19 +252,8 @@ body{background-color: #FFF9AD;padding: 15px;font-family: Arial;}
 			display: inline-block;
 		}
 
-		#menu ul li a{
-			color: #9BFFE0;
-			display: block;
-			padding: 10px 10px;
-			text-decoration: none;
-			font: bold 12pt arial;
-		}
-
-		#menu ul li a:hover{
-			background-color: #9BFFE0;
-			color: #000;
-		}
-
 		.item-r{
 			float: right;
 		}
+		
+		

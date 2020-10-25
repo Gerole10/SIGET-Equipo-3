@@ -4,16 +4,22 @@
 <head>
 <title>Calendario</title> 
 <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 <link rel="stylesheet" type="text/css" href="calendario.css" media="all" />
+<link rel="stylesheet" type="text/css" href="popups.css" media="all" />
 <script type="text/javascript" src="calendario.js"></script>
+
 </head>
 <body>
 	<div id="menu">
 		<div>
 		<ul>
-			<li><a href="#">Convocar Reunión</a></li>
-			<li><a href="#">Modificar Reunión</a></li>
-			<li class="item-r"><a href="#">Salir</a></li>
+			<li><button id="btn-convocar" class="btn-convocar">CONVOCAR REUNIÓN</button></li>
+			<li><button id="btn-modificar" class="btn-modificar">MODIFICAR REUNIÓN</button></li>
+			<li class="item-r"><button id="btn-salir" class="btn-salir">SALIR</button></li>
 		</ul>
 		</div>
 	</div>
@@ -98,6 +104,27 @@
 			</div>
 		</form>
 	</div>
+	
+		<div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<h3>CONVOCAR REUNIÓN</h3>
+				<form action="">
+					<div class="contenedor-inputs">
+						<input type="text" placeholder="Titulo">
+						<input type="text" placeholder="Descripción">
+						<input type="date" id="fechaconvocar" name="trip-start" value="2020-07-22" min="2018-01-01">
+						<input type="time" id="horaconvocar" name="appt" min="08:00" max="21:00" required>
+						
+					</div>
+					<input type="submit" class="btn-submit" value="GUARDAR">
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript" src="popups.js"></script>
+		
 	</div>
+	
+		
 </body>
 </html>
