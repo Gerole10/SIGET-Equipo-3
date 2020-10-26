@@ -1,5 +1,6 @@
 package es.uclm.esi.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -18,13 +19,14 @@ public class ServicioCalendarioPersonal {
 	
 	/**
 	 * 
-	 * @param fechaInferior
-	 * @param fechaSuperior
-	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
+	 * @param mes
+	 * @param ano
+	 * @return JSONObject con todos los numeros de dia que haya reunion ese mes
 	 */
-	public JSONObject getCalendarioPersonal(int mes, int ano) {
+	public JSONObject getCalendarioPersonalMes(int mes, int ano) {
 		List<Reunion> reuniones = rcp.findAll(); 
 		JSONObject calendario = new JSONObject();
+		ArrayList<Integer> dias = new ArrayList<Integer>();
 		for(int i=0; i<reuniones.size(); i++) {
 			boolean asiste=false;
 			for(int a=0; a<reuniones.get(i).getAsistentes().length; a++) {
@@ -35,12 +37,36 @@ public class ServicioCalendarioPersonal {
 				*/
 			}
 			if(reuniones.get(i).getAno()==ano && reuniones.get(i).getMes()==mes && asiste) {
-				calendario.put("reunion"+reuniones.get(i).getId(), reuniones.get(i));
+				dias.add(reuniones.get(i).getDia());
 			}
 			
 		}
+		calendario.put("dias", dias);
 		
 		return calendario;
+	}
+	
+	/**
+	 * 
+	 * @param dia
+	 * @return JSONObject con informacion detallada de la reunion ese dia
+	 */
+	
+	public JSONObject getDetallesReunion(int dia) {
+		List<Reunion> reuniones = rcp.findAll();
+		JSONObject reunion = new JSONObject();
+		for(int i=0; i<reuniones.size(); i++) {
+			if(reuniones.get(i).getDia()==dia) {
+				reunion.put("id", reuniones.get(i).getId());
+				reunion.put("titulo", reuniones.get(i).getTitulo());
+				reunion.put("dia", reuniones.get(i).getDia());
+				reunion.put("mes", reuniones.get(i).getMes());
+				reunion.put("ano", reuniones.get(i).getAno());
+				reunion.put("hora", reuniones.get(i).getHora());
+				reunion.put("asistentes", reuniones.get(i).getAsistentes());
+			}
+		}
+		return reunion;
 	}
 
 }

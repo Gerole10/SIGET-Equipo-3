@@ -20,17 +20,30 @@ public class ControllerCalendarioPersonal {
 	
 	@Autowired
 	private ServicioCalendarioPersonal servcp;
+	
 	/**
 	 * 
-	 * @param fechasLimite
-	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
+	 * @param fecha
+	 * @return JSONObject con todos los numeros de dias que haya reunion ese mes
 	 */
-	@GetMapping("/getCalendarioPersonal")
-	public JSONObject getCalendarioPersonal(@RequestBody Map<String, Object> fecha) {
+	@GetMapping("/getCalendarioPersonalMes")
+	public JSONObject getCalendarioPersonalMes(@RequestBody Map<String, Object> fecha) {
 		JSONObject jso = new JSONObject(fecha);
 		int mes = jso.getInt("mes");
 		int ano = jso.getInt("ano");
-		return servcp.getCalendarioPersonal(mes, ano);
+		return servcp.getCalendarioPersonalMes(mes, ano);
+	}
+	
+	/**
+	 * 
+	 * @param fecha
+	 * @return JSONObject con informacion detallada de la reunion ese dia
+	 */
+	@GetMapping("/getDetallesReunion")
+	public JSONObject getDetallesReunion(@RequestBody Map<String, Object> fecha) {
+		JSONObject jso = new JSONObject(fecha);
+		int dia = jso.getInt("dia");
+		return servcp.getDetallesReunion(dia);
 	}
 
 }
