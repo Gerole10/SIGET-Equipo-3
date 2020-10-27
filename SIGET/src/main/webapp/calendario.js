@@ -29,7 +29,7 @@ window.onload = function() {
 	cabecera() 
 	primeralinea()
 	escribirdias()
-	hola("Hey que pasa")
+	hola("Hey que pasa") //FUNCION DE PRUEBA
 }
 //FUNCIONES de creación del calendario:
 //cabecera del calendario

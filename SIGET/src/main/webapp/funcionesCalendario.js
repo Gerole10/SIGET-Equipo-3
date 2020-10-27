@@ -1,8 +1,47 @@
 var hoy = new Date();
 
-function hola(cosa){
-    console.log(cosa + " hoy es día " +hoy.getDate())
+var reunionesDia = {
+    "dia" : 26,
+    "mes" : 10,
+    "ano" : 2020,
+    "reuniones" : {
+        "R1" : {
+            "id": 1,
+            "titulo": "Frontend",
+            "hora":"11:30",
+            "duracion":90,
+            "asistentes": ["Jesus Cabanero","Victor Ramirez","German Rolando","Fatima Sanchez","Angel Villaseñor","Edilberto Pozo"],
+            "descripcion":"Una reunion para determinar el diseno del frontend"
+        },
+        "R2" : {
+            "id": 2,
+            "titulo": "daily",
+            "hora":"22:00",
+            "duracion":15,
+            "asistentes": ["Jesus Cabanero","Victor Ramirez","German Rolando","Fatima Sanchez","Angel Villaseñor","Edilberto Pozo"],
+            "descripcion":"Reunion daily para comentar el estado del proyecto"
+        },
+        "R3" : {
+            "id": 3,
+            "titulo": "Revision del Sprint",
+            "hora":"16:50",
+            "duracion":120,
+            "asistentes": ["Jesus Cabanero","Victor Ramirez","German Rolando","Fatima Sanchez","Angel Villaseñor","Edilberto Pozo"],
+            "descripcion":"Reunion para ver los resultados del sprint"
+        }
+    }
+};
+
+var reunionesMes = {
+    "mes" : 10,
+    "ano" : 2020,
+    "reuniones" : [05,12,17,21,26]
+};
+
+function hola(cosa){ //FUNCION DE PRUEBA
+    console.log(cosa + " hoy es día" +hoy.getDate()+" además que la reunión 1 tiene el titulo de "+reunionesDia.reuniones.R1.titulo);
 }
+
 
 function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
 	mesActual = hoy.getMonth() + 1;
@@ -22,6 +61,7 @@ function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
 			data = JSON.parse(data);
             escribirDiasConReunion(data);
 			escribirDiasConReunion(reun);*/
+            //Imaginemos que la recepción de los datos se hace correctamente y recibimos el json
         },
         error : function(response) {
             alert("Error en la petición de reuniones");
