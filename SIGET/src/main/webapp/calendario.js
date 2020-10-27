@@ -89,7 +89,7 @@ function escribirdias() {
                  if (mimes==meshoy && midia==diahoy && mianno==annohoy ) { 
                     celda.style.backgroundColor="#f0b19e";
                     celda.innerHTML="<cite title='Fecha Actual'>"+midia+"</cite>";
-                    celda.style.border = "thick solid #8FBC8B";
+                    celda.style.border = "thick solid #9370DB";
                     } else {
                     	celda.style.border = null;
                     }

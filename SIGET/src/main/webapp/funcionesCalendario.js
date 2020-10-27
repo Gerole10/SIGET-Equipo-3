@@ -32,7 +32,9 @@ var reunionesDia = {
     }
 };
 
-
+function clickInfoReuniones(ID){
+    console.log("Pues el id de la celda que has pillado es "+ ID);
+}
 
 function getReunionesMes(numMes){
     return {
