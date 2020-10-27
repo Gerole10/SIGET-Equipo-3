@@ -25,6 +25,7 @@ document.buscar.buscaanno.value=annohoy;
 mescal = meshoy; //mes principal
 annocal = annohoy //año principal
 //iniciar calendario:
+
 cabecera() 
 primeralinea()
 escribirdias()
@@ -143,3 +144,103 @@ function mifecha() {
               escribirdias() //escribir tabla
               }
          }
+		
+function reunionesMesHoy(){
+	mesActual = meshoy+1;
+	var info = {
+        type : "PeticionReunionesMes",
+		mes : mesActual,
+		ano : annohoy
+    };
+    
+    var data = {
+        data : JSON.stringify(info),
+        url : "peticionReuniones",
+        type : "get",
+        contentType: 'application/json',
+        success : function(event) {
+			<!-- var data = event.data;
+			data = JSON.parse(data);
+            escribirDiasConReunion(data);-->
+			escribirDiasConReunion(reun);
+        },
+        error : function(response) {
+            alert("Error en la petición de reuniones");
+        }
+    };
+    $.ajax(data);
+}
+
+function reunionesDiaHoy(){
+	mesActual = meshoy+1;
+	var info = {
+        type : "PeticionDatosReunion",
+		dia : diahoy,
+		mes : mesActual,
+		ano : annohoy
+    };
+    
+    var data = {
+        data : JSON.stringify(info),
+        url : "peticionDatosReunion",
+        type : "get",
+        contentType: 'application/json',
+        success : function() {
+            <!-- Tendríamos la información de las reuniones de ese día-->
+        },
+        error : function(response) {
+            alert("Error en la petición de reuniones");
+        }
+    };
+    $.ajax(data);
+}
+
+function reunionesMes(mesConcreto,anoConcreto){
+	var info = {
+        type : "PeticionReunionesMes",
+		mes : mesConcreto,
+		ano : anoConcreto
+    };
+    
+    var data = {
+        data : JSON.stringify(info),
+        url : "peticionReuniones",
+        type : "get",
+        contentType: 'application/json',
+        success : function() {
+            <!-- Mostraría los días que tienen reuniones-->
+        },
+        error : function(response) {
+            alert("Error en la petición de reuniones");
+        }
+    };
+    $.ajax(data);
+}
+
+function reunionesDia(diaConcreto,mesConcreto,anoConcreto){
+	mesActual = meshoy+1;
+	var info = {
+        type : "PeticionDatosReunion",
+		dia : diaConcreto,
+		mes : mesConcreto,
+		ano : anaConcretoConcreto
+    };
+    
+    var data = {
+        data : JSON.stringify(info),
+        url : "peticionDatosReunion",
+        type : "get",
+        contentType: 'application/json',
+        success : function() {
+            <!-- Tendríamos la información de las reuniones de ese día-->
+        },
+        error : function(response) {
+            alert("Error en la petición de reuniones");
+        }
+    };
+    $.ajax(data);
+}
+
+function escribirDiasConReunion(){
+	
+}
