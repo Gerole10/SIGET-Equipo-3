@@ -1,11 +1,32 @@
 var hoy = new Date();
+var contador = 1
 
-var reunionesDia = {
-    "dia" : 26,
+function clickInfoReuniones(ID){ //TODO cambiar metodo de obtención de los días que tienen o no reunión
+    var jsonReunionesDia = getDetallesReuniones(ID);
+
+    var borrador = document.getElementById("formularioPreview");
+    while (borrador.firstChild){
+        borrador.removeChild(borrador.firstChild);
+    }
+
+    if(jsonReunionesDia.reuniones == 0){
+        document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
+    } else {
+        for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
+            document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion'>"+
+                jsonReunionesDia.reuniones[i].titulo+"</label>"+
+                "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
+        }
+    }
+}
+
+function getDetallesReuniones(numDia){
+    return {
+    "dia" : numDia,
     "mes" : 10,
     "ano" : 2020,
-    "reuniones" : {
-        "R1" : {
+    "reuniones" : [
+        {
             "id": 1,
             "titulo": "Frontend",
             "hora":"11:30",
@@ -13,15 +34,15 @@ var reunionesDia = {
             "asistentes": ["Jesus Cabanero","Victor Ramirez","German Rolando","Fatima Sanchez","Angel Villaseñor","Edilberto Pozo"],
             "descripcion":"Una reunion para determinar el diseno del frontend"
         },
-        "R2" : {
+        {
             "id": 2,
-            "titulo": "daily",
+            "titulo": "Daily",
             "hora":"22:00",
             "duracion":15,
             "asistentes": ["Jesus Cabanero","Victor Ramirez","German Rolando","Fatima Sanchez","Angel Villaseñor","Edilberto Pozo"],
             "descripcion":"Reunion daily para comentar el estado del proyecto"
         },
-        "R3" : {
+        {
             "id": 3,
             "titulo": "Revision del Sprint",
             "hora":"16:50",
@@ -29,11 +50,8 @@ var reunionesDia = {
             "asistentes": ["Jesus Cabanero","Victor Ramirez","German Rolando","Fatima Sanchez","Angel Villaseñor","Edilberto Pozo"],
             "descripcion":"Reunion para ver los resultados del sprint"
         }
-    }
-};
-
-function clickInfoReuniones(ID){
-    console.log("Pues el id de la celda que has pillado es "+ ID);
+    ]
+}
 }
 
 function getReunionesMes(numMes){
