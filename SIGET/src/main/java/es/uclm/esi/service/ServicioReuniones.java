@@ -1,12 +1,16 @@
 package es.uclm.esi.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import es.uclm.esi.model.Reunion;
+import es.uclm.esi.repository.ReunionRepository;
 
 public class ServicioReuniones {
 
-	public static Reunion crearReunion(Reunion reunion) {
-		// TODO Auto-generated method stub
-		return null;
+	@Autowired		
+	ReunionRepository reunionRepository;
+	public Reunion crearReunion(Reunion reunion) {
+		return reunionRepository.save(reunion);
 	}
 
 }
