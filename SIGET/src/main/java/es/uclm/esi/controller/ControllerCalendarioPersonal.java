@@ -6,9 +6,10 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uclm.esi.model.ServicioCalendarioPersonal;
+import es.uclm.esi.service.ServicioCalendarioPersonal;
 
 /**
  * 
@@ -27,17 +28,17 @@ public class ControllerCalendarioPersonal {
 	 * @return JSONObject con todos los numeros de dias que haya reunion ese mes
 	 */
 	@GetMapping("/getCalendarioPersonalMes")
-	public JSONObject getCalendarioPersonalMes(@RequestBody Map<String, Object> fecha) {
+	public JSONObject getCalendarioPersonalMes(@RequestHeader("Authorization") String auth, @RequestBody Map<String, Object> fecha) {
 		JSONObject jso = new JSONObject(fecha);
 		int mes = jso.getInt("mes");
 		int ano = jso.getInt("ano");
-		return servcp.getCalendarioPersonalMes(mes, ano);
+		return servcp.getCalendarioPersonalMes(auth.substring(7, auth.length()),mes, ano);
 	}
 	
 	/**
 	 * 
 	 * @param fecha
-	 * @return JSONObject con informacion detallada de la reunion ese dia
+	 * @return JSONObject con informacion detallada de todas las reuniones de ese dia
 	 */
 	@GetMapping("/getDetallesReunion")
 	public JSONObject getDetallesReunion(@RequestBody Map<String, Object> fecha) {
