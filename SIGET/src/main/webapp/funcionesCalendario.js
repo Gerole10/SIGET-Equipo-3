@@ -1,22 +1,36 @@
 var hoy = new Date();
-var contador = 1
 
 function clickInfoReuniones(ID){ //TODO cambiar metodo de obtención de los días que tienen o no reunión
     var jsonReunionesDia = getDetallesReuniones(ID);
 
-    var borrador = document.getElementById("formularioPreview");
-    while (borrador.firstChild){
-        borrador.removeChild(borrador.firstChild);
+    for(j = 0; j < 31; j++){
+        document.getElementById(j).style.border = "2px double #fffafa";
     }
 
-    if(jsonReunionesDia.reuniones == 0){
-        document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
-    } else {
-        for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
-            document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion'>"+
-                jsonReunionesDia.reuniones[i].titulo+"</label>"+
-                "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
+    if(ID != 0){
+        var celda = document.getElementById(ID);
+        celda.style.border = "2px double coral";
+    }
+
+    formEnBlanco();
+
+    if(ID != 0){
+        if(jsonReunionesDia.reuniones == 0){
+            document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
+        } else {
+            for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
+                document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' onclick='mostrarInfoReunion()'>"+
+                    jsonReunionesDia.reuniones[i].titulo+"</label>"+
+                    "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
+            }
         }
+    }
+}
+
+function formEnBlanco(){
+var borrador = document.getElementById("formularioPreview");
+    while (borrador.firstChild){
+        borrador.removeChild(borrador.firstChild);
     }
 }
 

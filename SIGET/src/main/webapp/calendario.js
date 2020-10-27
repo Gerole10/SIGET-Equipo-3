@@ -74,8 +74,10 @@ function escribirdias() {
                  celda.innerHTML=midia;
                  celda.setAttribute('id',midia);
                  //Recuperar estado inicial al cambiar de mes:
-                 celda.style.backgroundColor="#9bf5ff";
+                 celda.style.backgroundColor="#F0FFF0";
                  celda.style.color="#492736";
+                 celda.style.border = "2px double #fffafa";
+                 formEnBlanco();
                  //domingos en rojo
                  if (j==6) { 
                     celda.style.color="#f11445";
@@ -89,9 +91,11 @@ function escribirdias() {
                  if (mimes==meshoy && midia==diahoy && mianno==annohoy ) { 
                     celda.style.backgroundColor="#f0b19e";
                     celda.innerHTML="<cite title='Fecha Actual'>"+midia+"</cite>";
-                    celda.style.border = "thick solid #9370DB";
+                    //celda.style.border = "thick solid #9370DB";
+                    celda.style.font = "bold 18pt arial";
+                    celda.style.color = "#BA55D3";
                     } else {
-                    	celda.style.border = null;
+                    	celda.style.font = "normal 14pt arial";
                     }
                  //pasar al siguiente día
                  midia=midia+1;
