@@ -1,8 +1,7 @@
 /*instrucciones generales*/
 
-
-* {
-	margin: auto
+*{
+margin: auto;
 }
 
 /*cabecera de la página*/
@@ -26,7 +25,7 @@
 	border-radius: 14px;
 	min-width: 470px;
 	min-height:498px;
-	background-color: #fffafa;
+	background-color: #66CDAA;
 	text-align: center;
 	margin-bottom: 20px;
 	

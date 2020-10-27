@@ -19,7 +19,7 @@ function clickInfoReuniones(ID){ //TODO cambiar metodo de obtención de los día
             document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
         } else {
             for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
-                document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' onclick='mostrarInfoReunion()'>"+
+                document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' onclick='mostrarInfoReunion("+jsonReunionesDia.reuniones[i].id+","+jsonReunionesDia.dia+")'>"+
                     jsonReunionesDia.reuniones[i].titulo+"</label>"+
                     "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
             }
@@ -32,6 +32,26 @@ var borrador = document.getElementById("formularioPreview");
     while (borrador.firstChild){
         borrador.removeChild(borrador.firstChild);
     }
+}
+
+function mostrarInfoReunion(idReunion,diaReunion){
+    var jsonMostrar = getDetallesReuniones(diaReunion);
+
+    var titulo = document.getElementById("titureunion");
+    titulo.setAttribute("value",jsonMostrar.reuniones[idReunion-1].titulo);
+
+    var hora = document.getElementById("horareunion");
+    hora.setAttribute("value",jsonMostrar.reuniones[idReunion-1].hora);
+
+    var descripcion = document.getElementById("descripcion");
+    descripcion.setAttribute("placeholder",jsonMostrar.reuniones[idReunion-1].descripcion);
+
+    for(i = 0; i < jsonMostrar.reuniones[idReunion-1].asistentes.length; i++){
+        var asistentes = document.getElementById("asistentes");
+        asistentes.setAttribute("placeholder",jsonMostrar.reuniones[idReunion-1].asistentes);   
+    }
+
+
 }
 
 function getDetallesReuniones(numDia){
