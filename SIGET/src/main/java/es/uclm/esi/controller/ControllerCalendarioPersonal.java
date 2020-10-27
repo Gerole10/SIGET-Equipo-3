@@ -1,15 +1,15 @@
 package es.uclm.esi.controller;
 
-import java.time.LocalDate;
 import java.util.Map;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uclm.esi.model.ServicioCalendarioPersonal;
+import es.uclm.esi.service.ServicioCalendarioPersonal;
 
 /**
  * 
@@ -20,18 +20,31 @@ import es.uclm.esi.model.ServicioCalendarioPersonal;
 public class ControllerCalendarioPersonal {
 	
 	@Autowired
-	ServicioCalendarioPersonal servcp;
+	private ServicioCalendarioPersonal servcp;
+	
 	/**
 	 * 
-	 * @param fechasLimite
-	 * @return JSONObject con todas las reuniones aceptadas por el solicitante
+	 * @param fecha
+	 * @return JSONObject con todos los numeros de dias que haya reunion ese mes
 	 */
-	@GetMapping("/getCalendarioPersonal")
-	public JSONObject getCalendarioPersonal(@RequestBody Map<String, Object> fechasLimite) {
-		JSONObject jso = new JSONObject(fechasLimite);
-		LocalDate fechaInferior = (LocalDate) jso.get("fechaInferior");
-		LocalDate fechaSuperior = (LocalDate) jso.get("fechaSuperior");
-		return servcp.getCalendarioPersonal(fechaInferior, fechaSuperior);
+	@GetMapping("/getCalendarioPersonalMes")
+	public JSONObject getCalendarioPersonalMes(@RequestHeader("Authorization") String auth, @RequestBody Map<String, Object> fecha) {
+		JSONObject jso = new JSONObject(fecha);
+		int mes = jso.getInt("mes");
+		int ano = jso.getInt("ano");
+		return servcp.getCalendarioPersonalMes(auth.substring(7, auth.length()),mes, ano);
+	}
+	
+	/**
+	 * 
+	 * @param fecha
+	 * @return JSONObject con informacion detallada de todas las reuniones de ese dia
+	 */
+	@GetMapping("/getDetallesReunion")
+	public JSONObject getDetallesReunion(@RequestBody Map<String, Object> fecha) {
+		JSONObject jso = new JSONObject(fecha);
+		int dia = jso.getInt("dia");
+		return servcp.getDetallesReunion(dia);
 	}
 
 }
