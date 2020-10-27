@@ -1,45 +1,46 @@
 //Arrays de datos:
-meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
-lasemana=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
-diassemana=["lun","mar","mié","jue","vie","sáb","dom"];
+meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+lasemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
+diassemana = ["lun","mar","mié","jue","vie","sáb","dom"];
 //Tras cargarse la página ...
 window.onload = function() {
-//fecha actual
-hoy=new Date(); //objeto fecha actual
-diasemhoy=hoy.getDay(); //dia semana actual
-diahoy=hoy.getDate(); //dia mes actual
-meshoy=hoy.getMonth(); //mes actual
-annohoy=hoy.getFullYear(); //año actual
-// Elementos del DOM: en cabecera de calendario 
-tit=document.getElementById("titulos"); //cabecera del calendario
-ant=document.getElementById("anterior"); //mes anterior
-pos=document.getElementById("posterior"); //mes posterior
-// Elementos del DOM en primera fila
-f0=document.getElementById("fila0");
-//Pie de calendario
-pie=document.getElementById("fechaactual");
-pie.innerHTML+=lasemana[diasemhoy]+", "+diahoy+" de "+meses[meshoy]+" de "+annohoy;
-//formulario: datos iniciales:
-document.buscar.buscaanno.value=annohoy;
-// Definir elementos iniciales:
-mescal = meshoy; //mes principal
-annocal = annohoy //año principal
-//iniciar calendario:
+	//fecha actual
+	hoy = new Date(); //objeto fecha actual
+	diasemhoy = hoy.getDay(); //dia semana actual
+	diahoy = hoy.getDate(); //dia mes actual
+	meshoy = hoy.getMonth(); //mes actual
+	annohoy = hoy.getFullYear(); //año actual
+	// Elementos del DOM: en cabecera de calendario 
+	tit = document.getElementById("titulos"); //cabecera del calendario
+	ant = document.getElementById("anterior"); //mes anterior
+	pos = document.getElementById("posterior"); //mes posterior
+	// Elementos del DOM en primera fila
+	f0 = document.getElementById("fila0");
+	//Pie de calendario
+	pie = document.getElementById("fechaactual");
+	pie.innerHTML += lasemana[diasemhoy]+", "+diahoy+" de "+meses[meshoy]+" de "+annohoy;
+	//formulario: datos iniciales:
+	document.buscar.buscaanno.value = annohoy;
+	// Definir elementos iniciales:
+	mescal = meshoy; //mes principal
+	annocal = annohoy //año principal
+	//iniciar calendario:
 
-cabecera() 
-primeralinea()
-escribirdias()
+	cabecera() 
+	primeralinea()
+	escribirdias()
+	hola("Hey que pasa")
 }
 //FUNCIONES de creación del calendario:
 //cabecera del calendario
 function cabecera() {
-         tit.innerHTML=meses[mescal]+" de "+annocal;
-         mesant=mescal-1; //mes anterior
-         mespos=mescal+1; //mes posterior
-         if (mesant<0) {mesant=11;}
-         if (mespos>11) {mespos=0;}
-         ant.innerHTML=meses[mesant]
-         pos.innerHTML=meses[mespos]
+         tit.innerHTML = meses[mescal]+" de "+annocal;
+         mesant = mescal-1; //mes anterior
+         mespos = mescal+1; //mes posterior
+         if (mesant<0) {mesant = 11;}
+         if (mespos>11) {mespos = 0;}
+         ant.innerHTML = meses[mesant]
+         pos.innerHTML = meses[mespos]
          } 
 //primera línea de tabla: días de la semana.
 function primeralinea() {
@@ -144,103 +145,3 @@ function mifecha() {
               escribirdias() //escribir tabla
               }
          }
-		
-function reunionesMesHoy(){
-	mesActual = meshoy+1;
-	var info = {
-        type : "PeticionReunionesMes",
-		mes : mesActual,
-		ano : annohoy
-    };
-    
-    var data = {
-        data : JSON.stringify(info),
-        url : "peticionReuniones",
-        type : "get",
-        contentType: 'application/json',
-        success : function(event) {
-			<!-- var data = event.data;
-			data = JSON.parse(data);
-            escribirDiasConReunion(data);-->
-			escribirDiasConReunion(reun);
-        },
-        error : function(response) {
-            alert("Error en la petición de reuniones");
-        }
-    };
-    $.ajax(data);
-}
-
-function reunionesDiaHoy(){
-	mesActual = meshoy+1;
-	var info = {
-        type : "PeticionDatosReunion",
-		dia : diahoy,
-		mes : mesActual,
-		ano : annohoy
-    };
-    
-    var data = {
-        data : JSON.stringify(info),
-        url : "peticionDatosReunion",
-        type : "get",
-        contentType: 'application/json',
-        success : function() {
-            <!-- Tendríamos la información de las reuniones de ese día-->
-        },
-        error : function(response) {
-            alert("Error en la petición de reuniones");
-        }
-    };
-    $.ajax(data);
-}
-
-function reunionesMes(mesConcreto,anoConcreto){
-	var info = {
-        type : "PeticionReunionesMes",
-		mes : mesConcreto,
-		ano : anoConcreto
-    };
-    
-    var data = {
-        data : JSON.stringify(info),
-        url : "peticionReuniones",
-        type : "get",
-        contentType: 'application/json',
-        success : function() {
-            <!-- Mostraría los días que tienen reuniones-->
-        },
-        error : function(response) {
-            alert("Error en la petición de reuniones");
-        }
-    };
-    $.ajax(data);
-}
-
-function reunionesDia(diaConcreto,mesConcreto,anoConcreto){
-	mesActual = meshoy+1;
-	var info = {
-        type : "PeticionDatosReunion",
-		dia : diaConcreto,
-		mes : mesConcreto,
-		ano : anaConcretoConcreto
-    };
-    
-    var data = {
-        data : JSON.stringify(info),
-        url : "peticionDatosReunion",
-        type : "get",
-        contentType: 'application/json',
-        success : function() {
-            <!-- Tendríamos la información de las reuniones de ese día-->
-        },
-        error : function(response) {
-            alert("Error en la petición de reuniones");
-        }
-    };
-    $.ajax(data);
-}
-
-function escribirDiasConReunion(){
-	
-}
