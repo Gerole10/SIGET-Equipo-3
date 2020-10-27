@@ -29,7 +29,6 @@ window.onload = function() {
 	cabecera() 
 	primeralinea()
 	escribirdias()
-	hola("Hey que pasa") //FUNCION DE PRUEBA
 }
 //FUNCIONES de creación del calendario:
 //cabecera del calendario
@@ -51,6 +50,8 @@ function primeralinea() {
          }
 //rellenar celdas con los días
 function escribirdias() {
+		 //reunionesMes(mescal,annocal) //Pide las reuniones del nuevo mes
+         var jsonreuniones = getReunionesMes(mescal+1)//Almacenamos el JSON con los días que hay reuniones
          //Buscar dia de la semana del dia 1 del mes:
          primeromes=new Date(annocal,mescal,"1") //buscar primer día del mes
          prsem=primeromes.getDay() //buscar día de la semana del día 1
@@ -71,6 +72,7 @@ function escribirdias() {
                  mianno=diames.getFullYear()
                  celda=fila.getElementsByTagName("td")[j];
                  celda.innerHTML=midia;
+                 celda.setAttribute('id',midia);
                  //Recuperar estado inicial al cambiar de mes:
                  celda.style.backgroundColor="#9bf5ff";
                  celda.style.color="#492736";
@@ -80,16 +82,26 @@ function escribirdias() {
                     }
                  //dias restantes del mes en gris
                  if (mimes!=mescal) { 
+                 	celda.setAttribute('id',0);
                     celda.style.color="#a0babc";
                     }
                  //destacar la fecha actual
                  if (mimes==meshoy && midia==diahoy && mianno==annohoy ) { 
                     celda.style.backgroundColor="#f0b19e";
                     celda.innerHTML="<cite title='Fecha Actual'>"+midia+"</cite>";
+                    celda.style.border = "thick solid #8FBC8B";
+                    } else {
+                    	celda.style.border = null;
                     }
                  //pasar al siguiente día
                  midia=midia+1;
                  diames.setDate(midia);
+                 var tamanoJSON = jsonreuniones.reuniones.length;
+                 for(ii = 0; ii < tamanoJSON; ii++){ //Resalta cuando hay una reunión ese día
+                 	if(celda.getAttribute("id") == jsonreuniones.reuniones[ii]){
+                 		celda.style.backgroundColor="#98FB98";
+                 	}
+                 }
                  }
              }
          }

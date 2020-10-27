@@ -32,16 +32,14 @@ var reunionesDia = {
     }
 };
 
-var reunionesMes = {
-    "mes" : 10,
+
+
+function getReunionesMes(numMes){
+    return {
+    "mes" : numMes,
     "ano" : 2020,
-    "reuniones" : [05,12,17,21,26]
-};
-
-function hola(cosa){ //FUNCION DE PRUEBA
-    console.log(cosa + " hoy es día" +hoy.getDate()+" además que la reunión 1 tiene el titulo de "+reunionesDia.reuniones.R1.titulo);
+    "reuniones" : [05,12,17,21,26,27] }
 }
-
 
 function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
 	mesActual = hoy.getMonth() + 1;
