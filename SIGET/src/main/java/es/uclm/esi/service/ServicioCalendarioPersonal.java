@@ -3,6 +3,7 @@ package es.uclm.esi.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,6 +28,7 @@ public class ServicioCalendarioPersonal {
 	 * @return JSONObject con todos los numeros de dia que haya reunion ese mes
 	 */
 	public JSONObject getCalendarioPersonalMes(String token, int mes, int ano) {
+		System.out.println("Llegué hasta getCalendarioPersonalMes");
 		List<Reunion> reuniones = rcp.findAll(); 
 		JSONObject calendario = new JSONObject();
 		ArrayList<Integer> dias = new ArrayList<Integer>();
@@ -42,9 +44,10 @@ public class ServicioCalendarioPersonal {
 			}
 		}
 		calendario.put("dias", dias);
-		
+		System.out.println("Llegué hasta aquí loco "+dias);
 		return calendario;
 	}
+
 	
 	/**
 	 * 

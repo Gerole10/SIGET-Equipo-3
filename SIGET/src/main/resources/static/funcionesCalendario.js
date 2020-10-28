@@ -81,56 +81,54 @@ function getReunionesMes(data){
 
 function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
 	mesActual = hoy.getMonth() + 1;
+    anoActual = hoy.getFullYear();
 	var info = {
         "type" : "PeticionReunionesMes",
 		"mes" : mesActual,
-		"ano" : hoy.getFullYear()
+		"ano" : anoActual
     };
-    $.ajax
-        ({
-          type: "GET",
-          url: "/getCalendarioPersonalMes",
-          dataType: 'application/json',
-          headers: {
-            "Authorization": "Bearer " + localStorage.getItem("jwt")},
-          data: JSON.stringify(info),
-          success: function (){
-            alert('Thanks for your comment!');
+    var infoAjax = {type: "GET",
+        url: "/getCalendarioPersonalMes",
+        dataType: 'application/json',
+        headers: {"Authorization": "Bearer " + localStorage.getItem("jwt")},
+        data: JSON.stringify(info),
+        success: function (event){
+            console.log(event);
             var data = event.data;
             data = JSON.parse(data);
             getReunionesMes(data); 
-          },
-          error: function(){
-            alert("ERROR");
-          }
-        });
+        },
+        error: function(response){
+            console.log(response);
+            alert("ERROR en reunionesMesHoy()"+response);
+        }};
+    $.ajax(infoAjax);
 }
 
 function reunionesDiaHoy(){ //Mostrará las reuniones que hay en el día de hoy, por defecto
 	mesActual = meshoy+1;
 	var info = {
-        type : "PeticionDatosReunion",
-		dia : diahoy,
-		mes : mesActual,
-		ano : annohoy
+        "type" : "PeticionDatosReunion",
+		"dia" : hoy.getDay(),
+		"mes" : mesActual,
+		"ano" : hoy.getFullYear()
     };
-    
-    var data = {
-        data : JSON.stringify(info),
-        url : "/getDetallesReunion",
-        type : "get",
-        contentType: 'application/json',
-        headers:{'Authorization':'Bearer '+localStorage.getItem('jwt')},
-        success : function(event) {
-        	var data = event.data;
-			data = JSON.parse(data);
-			getDetallesReuniones(data);
+
+    var infoAjax = {
+        type: "GET",
+        url: "/getDetallesReunion",
+        dataType: 'application/json',
+        headers: {"Authorization": "Bearer " + localStorage.getItem("jwt")},
+        data: JSON.stringify(info),
+        success: function (event){
+            var data = event.data;
+            data = JSON.parse(data);
+            getReunionesMes(data); 
         },
-        error : function(response) {
-            alert("Error en la petición de reuniones");
-        }
-    };
-    $.ajax(data);
+        error: function(){
+           alert("ERROR");
+        }};
+    $.ajax(infoAjax);
 }
 
 function getReunionesMesC(data){

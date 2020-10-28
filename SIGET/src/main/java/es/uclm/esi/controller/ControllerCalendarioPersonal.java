@@ -18,9 +18,8 @@ import es.uclm.esi.service.ServicioCalendarioPersonal;
  */
 @RestController
 public class ControllerCalendarioPersonal {
-	
-	
-	private ServicioCalendarioPersonal servcp;
+	//@Autowired
+	private ServicioCalendarioPersonal servcp = new ServicioCalendarioPersonal();
 	
 	/**
 	 * 
@@ -28,8 +27,9 @@ public class ControllerCalendarioPersonal {
 	 * @return JSONObject con todos los numeros de dias que haya reunion ese mes
 	 */
 	@GetMapping("/getCalendarioPersonalMes")
-	public JSONObject getCalendarioPersonalMes(@RequestHeader("Authorization") String auth, @RequestBody Map<String, Object> fecha) {
-		JSONObject jso = new JSONObject(fecha);
+	public JSONObject getCalendarioPersonalMes(@RequestHeader("Authorization") String auth, @RequestBody String body) {
+		System.out.println("Llegué hasta getCalendarioPersonalMes()");
+		JSONObject jso = new JSONObject(body);
 		int mes = jso.getInt("mes");
 		int ano = jso.getInt("ano");
 		return servcp.getCalendarioPersonalMes(auth.substring(7, auth.length()),mes, ano);
@@ -41,8 +41,8 @@ public class ControllerCalendarioPersonal {
 	 * @return JSONObject con informacion detallada de todas las reuniones de ese dia
 	 */
 	@GetMapping("/getDetallesReunion")
-	public JSONObject getDetallesReunion(@RequestBody Map<String, Object> fecha) {
-		JSONObject jso = new JSONObject(fecha);
+	public JSONObject getDetallesReunion(@RequestBody JSONObject jso) {
+		//JSONObject jso = new JSONObject(fecha);
 		int dia = jso.getInt("dia");
 		return servcp.getDetallesReunion(dia);
 	}
