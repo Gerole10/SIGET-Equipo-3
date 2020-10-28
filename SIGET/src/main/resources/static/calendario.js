@@ -31,7 +31,7 @@ window.onload = function() {
 	// Definir elementos iniciales:
 	mescal = meshoy; //mes principal
 	annocal = annohoy //año principal
-
+    console.log("Shegué hasta aquí")
 	//Llamadas iniciales para la petición de información de reuniones
 	reunionesMesHoy()
 	reunionesDiaHoy()
@@ -40,6 +40,7 @@ window.onload = function() {
 	cabecera() 
 	primeralinea()
 	escribirdias()
+    console.log("Pero hasta aquí no :(")
 }
 
 //FUNCIONES de creación del calendario:
