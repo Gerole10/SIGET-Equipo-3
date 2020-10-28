@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import es.uclm.esi.model.Reunion;
 import es.uclm.esi.repository.RepositoryCalendarioPersonal;
+import es.uclm.esi.security.jwt.JwtUtils;
 
 /**
  * 
@@ -17,6 +18,7 @@ import es.uclm.esi.repository.RepositoryCalendarioPersonal;
 public class ServicioCalendarioPersonal {
 	@Autowired
 	private RepositoryCalendarioPersonal rcp;
+	JwtUtils jwt;
 	
 	/**
 	 * 
@@ -31,11 +33,9 @@ public class ServicioCalendarioPersonal {
 		for(int i=0; i<reuniones.size(); i++) {
 			boolean asiste=false;
 			for(int a=0; a<reuniones.get(i).getAsistentes().length; a++) {
-				/*
-				if(JwtUtils.getUserNameFromJwtToken(token).equals(reuniones.get(i).getAsistente(a))) {
+				if(jwt.getUserNameFromJwtToken(token).equals(reuniones.get(i).getAsistente(a))) {
 						asiste=true;
 				}
-				*/
 			}
 			if(reuniones.get(i).getAno()==ano && reuniones.get(i).getMes()==mes && asiste) {
 				dias.add(reuniones.get(i).getDia());
