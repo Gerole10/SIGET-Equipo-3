@@ -13,13 +13,15 @@ function clickInfoReuniones(ID){ //TODO cambiar metodo de obtención de los día
     }
 
     formEnBlanco();
+    detallesEnBlanco();
 
     if(ID != 0){
         if(jsonReunionesDia.reuniones == 0){
             document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
         } else {
             for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
-                document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' onclick='mostrarInfoReunion("+jsonReunionesDia.reuniones[i].id+","+jsonReunionesDia.dia+")'>"+
+                document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' "+
+                	"onclick='mostrarInfoReunion("+jsonReunionesDia.reuniones[i].id+","+jsonReunionesDia.dia+")'>"+
                     jsonReunionesDia.reuniones[i].titulo+"</label>"+
                     "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
             }
@@ -32,6 +34,22 @@ var borrador = document.getElementById("formularioPreview");
     while (borrador.firstChild){
         borrador.removeChild(borrador.firstChild);
     }
+}
+
+function detallesEnBlanco(){
+	//Vacía la caja de la derecha cada vez que cambia el día seleccionado
+	var tituloB = document.getElementById("titureunion");
+    tituloB.setAttribute("value"," ");
+
+    var horaB = document.getElementById("horareunion");
+    horaB.setAttribute("value"," ");
+
+    var descripcionB = document.getElementById("descripcion");
+    descripcionB.setAttribute("placeholder"," ");
+
+    var asistentesB = document.getElementById("asistentes");
+    asistentesB.setAttribute("placeholder"," ");
+
 }
 
 function mostrarInfoReunion(idReunion,diaReunion){
@@ -108,8 +126,9 @@ function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
         url : "peticionReuniones",
         type : "get",
         contentType: 'application/json',
+        headers:{'Authorization':'Bearer '+localStorage.getItem('jwt')},
         success : function(event) {
-/*			var data = event.data;
+		/*  var data = event.data;
 			data = JSON.parse(data);
 			return data;
 			*/

@@ -106,7 +106,6 @@ function escribirdias() {
             celda.style.backgroundColor = "#F0FFF0";
             celda.style.color = "#492736";
             celda.style.border = "2px double #fffafa";
-            formEnBlanco();
 
             //Domingos en rojo
             if(j == 6) { 
