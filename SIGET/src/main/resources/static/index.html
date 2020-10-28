@@ -143,11 +143,12 @@ function LogIn() {
         	//console.log(response.accessToken);
         localStorage.setItem('jwt',response.accessToken);//guardo el token que luego habra que enviar en el header de las peticiones
         localStorage.setItem('accessToken',response.accessToken);
+        window.location.href="calendario.html";
        
         	alert("Correcto");
         },
         error : function(response) {
-            alert("Error en la autenticación del usuario");
+            alert("Error en la autenticaciï¿½n del usuario");
         }
     };
     $.ajax(data);

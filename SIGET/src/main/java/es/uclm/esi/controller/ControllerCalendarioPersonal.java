@@ -19,7 +19,7 @@ import es.uclm.esi.service.ServicioCalendarioPersonal;
 @RestController
 public class ControllerCalendarioPersonal {
 	
-	@Autowired
+	
 	private ServicioCalendarioPersonal servcp;
 	
 	/**
