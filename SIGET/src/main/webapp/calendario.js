@@ -32,6 +32,12 @@ window.onload = function() {
 	mescal = meshoy; //mes principal
 	annocal = annohoy //año principal
 
+	//Llamadas iniciales para la petición de información de reuniones
+	/*
+	*reunionesMesHoy()
+	*reunionesDiaHoy()	
+	*/
+
 	//Iniciar calendario:
 	cabecera() 
 	primeralinea()
@@ -63,7 +69,13 @@ function primeralinea() {
 //Rellenar celdas con los días
 function escribirdias() {
 
-	//reunionesMes(mescal,annocal) //Pide las reuniones del nuevo mes
+	/*
+	if(estamos en el mes actual){
+		var jsonReuniones = getReunionesMes();
+	} else {
+		var jsonReuniones = getReunionesMesC(mesEnElQueEstamos,AnoEsElQueEstamos);
+	}
+	*/
     var jsonreuniones = getReunionesMes(mescal+1)//Almacenamos el JSON con los días que hay reuniones
 
     //Buscar dia de la semana del dia 1 del mes:
@@ -185,3 +197,13 @@ function mifecha() {
         escribirdias() //escribir tabla
     }
 }
+
+/*
+Cuando el login sea correcto llamará al calendario personal (calendario.html+calendario.js) mandándole el usuario que ha accedido al sistema almacenándolo
+en una cookie. En la función window.onload() llamará a reunionesMesHoy() en funcionesCalendario.js pidiéndole los días del mes actual en los que hay alguna reunión.
+Posteriormente cargará el calendario remarcando los días en los que hay reunión y, en la misma función window.onload(), llamará a reunionesDiaHoy() para pedir
+las reuniones del día actual y así poder mostrarlas en la lista de reuniones (form del medio). El sistema se quedará esperando hasta que seleccione una reunión concreta
+de la que se mostrará dicha información en el panel de la derecha o bien hasta que seleccione otro día. En el segundo caso se llamará a reunionesMes() pasándole
+por parámetros el mes y el año concretos que se ha seleccionado y recibirá los días que hay reunión en ese mes concreto. En caso de que seleccione un día conreto para 
+saber sus reuniones, se llamará a reunionesDia() dándole por parámetros el día concreto que queremos las reuniones y recibirá la información detallada de las reuniones.
+*/

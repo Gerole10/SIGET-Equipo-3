@@ -111,8 +111,8 @@ function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
         success : function(event) {
 /*			var data = event.data;
 			data = JSON.parse(data);
-            escribirDiasConReunion(data);
-			escribirDiasConReunion(reun);*/
+			return data;
+			*/
             //Imaginemos que la recepción de los datos se hace correctamente y recibimos el json
         },
         error : function(response) {
@@ -192,6 +192,10 @@ function reunionesDia(diaConcreto,mesConcreto,anoConcreto){ //Mostrará las reun
     $.ajax(data);
 }
 
-function escribirDiasConReunion(){
-	
-}
+/*
+Cuando juntemos:
+	- Cambiamos el parámetro de getDetallesReunion() para pasarle el data que te llega de reunionesDiaHoy() para que haga un return de esos datos.
+	- Cambiamos el parámetro de getReunionesMes() para pasarle el data que te llega de reunionesMesHoy() para que haga un return de esos datos.
+	- Hacer función get de los datos que recibe reunionesDia(diaC,mesC,anoC) (get) (getDetallesReunionDiaC())
+	- Hacer función get de los datos que recibe reunionesMes(mesC,anoC) (getReunionesMesC())
+*/
