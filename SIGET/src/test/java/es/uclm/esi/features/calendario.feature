@@ -32,15 +32,20 @@ Feature: Calendario
  		And con mes 2 y anio 3
  		Then la respuesta debe ser ""
  		
-Scenario: Calendario mes con valores vacios
+Scenario: Calendario mes con mes vacio
 		When Consulta calendario  con el token ""  
 		And consulta calendario mes con "mes" vacio
 		Then la respuesta debe ser "ERROR"
 		
-Scenario: Calendario mes con valores vacios
+Scenario: Calendario mes con anio vacio
 		When Consulta calendario  con el token ""
 		And consulta calendario mes con "anio" vacio
 		Then la respuesta debe ser "ERROR"		
+		
+Scenario: Calendario mes con valores vacios
+		When Consulta calendario  con el token ""  
+		And consulta calendario mes con "todo" vacio
+		Then la respuesta debe ser "ERROR"
 		
 Scenario: Calendario dia con valores vacios
 		When Consulta calendario  con el token ""  
