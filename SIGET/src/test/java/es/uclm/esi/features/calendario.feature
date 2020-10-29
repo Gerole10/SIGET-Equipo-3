@@ -33,14 +33,26 @@ Feature: Calendario
  		Then la respuesta debe ser ""
  		
 Scenario: Calendario mes con valores vacios
-		When Consulta calendario  con el token "incorrecto"  
+		When Consulta calendario  con el token ""  
 		And consulta calendario mes con "mes" vacio
 		Then la respuesta debe ser "ERROR"
 		
+Scenario: Calendario mes con valores vacios
+		When Consulta calendario  con el token ""
+		And consulta calendario mes con "anio" vacio
+		Then la respuesta debe ser "ERROR"		
+		
 Scenario: Calendario dia con valores vacios
-		When Consulta calendario  con el token "incorrecto"  
+		When Consulta calendario  con el token ""  
 		And consulta calendario dia con "dia" vacio
 		Then la respuesta debe ser "ERROR"
+		
+Scenario: Calendario dia con valores vacios
+		When Consulta calendario  con el token ""  
+		And consulta calendario dia con "dia" vacio
+		Then la respuesta debe ser "ERROR"
+		
+
 		
 		
 
