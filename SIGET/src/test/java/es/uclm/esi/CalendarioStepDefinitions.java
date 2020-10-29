@@ -52,27 +52,45 @@ public class CalendarioStepDefinitions extends SpringIntegrationTest {
     @When("consulta calendario mes con {string} vacio")
     public void consulta_calendario_mes_con_vacio(String string) {
     	
-    	if (string.equals("mes"));
+    	if (string.equals("mes")) {
     		HttpEntity <SoloAnio> request = new HttpEntity <>(new SoloAnio (2020), headers);
     		String url = DEFAULT_URL + "getCalendarioPersonalMes/";
         	response = restTemplate.postForEntity(url, request, String.class);
-        	
-       if (string.equals("anio"));
+    	}	
+       if (string.equals("anio")) {
     		HttpEntity <SoloMes> request1 = new HttpEntity <>(new SoloMes (2), headers);
     		String url1 = DEFAULT_URL + "getCalendarioPersonalMes/";
         	response = restTemplate.postForEntity(url1, request1, String.class);
-        	
-        if (string.equals("todo"));
+       }	
+        if (string.equals("todo")) {
      		HttpEntity <ClaseVacia> request2 = new HttpEntity <>(new ClaseVacia (), headers);
      		String url2 = DEFAULT_URL + "getCalendarioPersonalMes/";
          	response = restTemplate.postForEntity(url2, request2, String.class);
+        }
     }
-
+    
+    
+   
 
     @When("consulta calendario dia con {string} vacio")
     public void consulta_calendario_dia_con_vacio(String string) {
         
-        throw new io.cucumber.java.PendingException();
+    if (string.equals("mes")){
+		HttpEntity <DiaAnio> request = new HttpEntity <>(new DiaAnio (2,2020), headers);
+		String url = DEFAULT_URL + "getCalendarioPersonalDia/";
+    	response = restTemplate.postForEntity(url, request, String.class);
+    }	
+    if (string.equals("anio")){
+		HttpEntity <DiaMes> request1 = new HttpEntity <>(new DiaMes (2,3), headers);
+		String url1 = DEFAULT_URL + "getCalendarioPersonalDia/";
+    	response = restTemplate.postForEntity(url1, request1, String.class);
+    }
+    if (string.equals("todo")){
+ 		HttpEntity <ClaseVacia> request2 = new HttpEntity <>(new ClaseVacia (), headers);
+ 		String url2 = DEFAULT_URL + "getCalendarioPersonalDia/";
+     	response = restTemplate.postForEntity(url2, request2, String.class);
+    }
+     
     }
  
     @Then("la respuesta debe ser {string}")
