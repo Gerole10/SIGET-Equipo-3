@@ -47,14 +47,40 @@ Scenario: Calendario mes con valores vacios
 		And consulta calendario mes con "todo" vacio
 		Then la respuesta debe ser "ERROR"
 		
-Scenario: Calendario dia con valores vacios
+Scenario: Calendario dia con dia vacio
 		When Consulta calendario  con el token ""  
 		And consulta calendario dia con "dia" vacio
 		Then la respuesta debe ser "ERROR"
 		
-Scenario: Calendario dia con valores vacios
+Scenario: Calendario dia con mes vacio
 		When Consulta calendario  con el token ""  
-		And consulta calendario dia con "dia" vacio
+		And consulta calendario dia con "mes" vacio
+		Then la respuesta debe ser "ERROR"
+		
+Scenario: Calendario dia con anio vacio
+		When Consulta calendario  con el token ""  
+		And consulta calendario dia con "anio" vacio
+		Then la respuesta debe ser "ERROR"
+		
+Scenario: Calendario dia con diaYmes vacio
+		When Consulta calendario  con el token ""  
+		And consulta calendario dia con "diaYmes" vacio
+		Then la respuesta debe ser "ERROR"
+
+		
+Scenario: Calendario dia con diaYanio vacio
+		When Consulta calendario  con el token ""  
+		And consulta calendario dia con "diaYanio" vacio
+		Then la respuesta debe ser "ERROR"
+		
+Scenario: Calendario dia con mesYanio vacio
+		When Consulta calendario  con el token ""  
+		And consulta calendario dia con "mesYanio" vacio
+		Then la respuesta debe ser "ERROR"
+		
+Scenario: Calendario dia con todo vacio
+		When Consulta calendario  con el token ""  
+		And consulta calendario dia con "todo" vacio
 		Then la respuesta debe ser "ERROR"
 		
 
