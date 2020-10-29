@@ -85,6 +85,21 @@ public class CalendarioStepDefinitions extends SpringIntegrationTest {
 		String url1 = DEFAULT_URL + "getCalendarioPersonalDia/";
     	response = restTemplate.postForEntity(url1, request1, String.class);
     }
+    if (string.equals("diaYmes")) {
+		HttpEntity <SoloAnio> request = new HttpEntity <>(new SoloAnio (2020), headers);
+		String url = DEFAULT_URL + "getCalendarioPersonalMes/";
+    	response = restTemplate.postForEntity(url, request, String.class);
+	}	
+   if (string.equals("diaYanio")) {
+		HttpEntity <SoloMes> request1 = new HttpEntity <>(new SoloMes (2), headers);
+		String url1 = DEFAULT_URL + "getCalendarioPersonalMes/";
+    	response = restTemplate.postForEntity(url1, request1, String.class);
+   }
+   if (string.equals("mesYanio")) {
+		HttpEntity <SoloDia> request1 = new HttpEntity <>(new SoloDia (23), headers);
+		String url1 = DEFAULT_URL + "getCalendarioPersonalMes/";
+   	response = restTemplate.postForEntity(url1, request1, String.class);
+  }
     if (string.equals("todo")){
  		HttpEntity <ClaseVacia> request2 = new HttpEntity <>(new ClaseVacia (), headers);
  		String url2 = DEFAULT_URL + "getCalendarioPersonalDia/";
