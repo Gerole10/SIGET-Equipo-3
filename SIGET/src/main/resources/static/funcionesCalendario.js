@@ -100,9 +100,10 @@ function pruebaConexion(){
 
     // código a ejecutar si la petición es satisfactoria;
     // la respuesta es pasada como argumento a la función
-    success : function(json) {
+    success : function(response) {
         console.log("La respuesta llegó");
-        console.log("La respuesta es: "+json);
+        var hey = response.hey;
+        console.log("response.hey es: "+ hey);
     },
 
     // código a ejecutar si la petición falla;
@@ -116,7 +117,6 @@ function pruebaConexion(){
     // código a ejecutar sin importar si la petición falló o no
     complete : function() {
         alert('Petición realizada');
-        console.log("Estoy enviando: "+data);
     }
 });
 }
