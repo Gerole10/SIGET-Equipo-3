@@ -3,17 +3,20 @@ package es.uclm.esi.controller;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
 import org.json.JSONObject;
 
 @RestController
 public class PruebaController {
-	
-	private static final JSONObject jso = new JSONObject();
 
-	@RequestMapping(value = "/pruebaConexion", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    JSONObject pruebaConexion(JSONObject jsoentrada){
-		System.out.println("Pues mira me ha llegao esto: "+jsoentrada);
-		jso.put("hey", "hola");
-        return jso;
+	@PostMapping("/pruebaConexion")
+    public JSONObject pruebaConexion(@RequestBody Map<String, Object> prueba){
+		JSONObject jso=new JSONObject(prueba);
+		System.out.println("Pues mira me ha llegao esto: "+ jso.getInt("id"));
+		JSONObject jsoret = new JSONObject();
+		jsoret.put("hey", "hola");
+        return jsoret;
     }
 }

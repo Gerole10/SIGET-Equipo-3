@@ -81,8 +81,8 @@ function getReunionesMes(data){
 
 function pruebaConexion(){
     var info = {
-        "id" : 123,
-        "ejemplo" : "Pues esto mismo"
+        id: 123,
+        ejemplo: "Pues esto mismo"
     };
     $.ajax({
     // la URL para la petición
@@ -92,7 +92,7 @@ function pruebaConexion(){
     data : JSON.stringify(info),
 
     // especifica si será una petición POST o GET
-    type : 'GET',
+    type : "post",
 
     // el tipo de información que se espera de respuesta
     dataType: 'json',
