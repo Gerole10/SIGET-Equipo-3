@@ -6,6 +6,8 @@ diassemana = ["lun","mar","mié","jue","vie","sáb","dom"];
 //Tras cargarse la página ...
 window.onload = function() {
 
+    pruebaConexion()
+
 	//Fecha actual
 	hoy = new Date(); //objeto fecha actual
 	diasemhoy = hoy.getDay(); //dia semana actual
@@ -33,8 +35,8 @@ window.onload = function() {
 	annocal = annohoy //año principal
     console.log("Shegué hasta aquí")
 	//Llamadas iniciales para la petición de información de reuniones
-	reunionesMesHoy()
-	reunionesDiaHoy()
+	//reunionesMesHoy()
+	//reunionesDiaHoy()
 
 	//Iniciar calendario:
 	cabecera() 

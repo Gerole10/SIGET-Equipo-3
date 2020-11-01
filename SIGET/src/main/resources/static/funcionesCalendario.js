@@ -79,6 +79,52 @@ function getReunionesMes(data){
     return data;
 }
 
+function pruebaConexion(){
+    var info = {
+        "id" : 123,
+        "ejemplo" : "Pues esto mismo"
+    };
+    $.ajax({
+    // la URL para la petición
+    url : '/pruebaConexion',
+
+    // la información a enviar
+    data : JSON.stringify(info),
+
+    // especifica si será una petición POST o GET
+    type : 'GET',
+
+    // el tipo de información que se espera de respuesta
+    dataType: 'json',
+    contentType: 'application/json',
+
+    // código a ejecutar si la petición es satisfactoria;
+    // la respuesta es pasada como argumento a la función
+    success : function(json) {
+        console.log("La respuesta llegó");
+        console.log("La respuesta es: "+json);
+    },
+
+    // código a ejecutar si la petición falla;
+    // son pasados como argumentos a la función
+    // el objeto de la petición en crudo y código de estatus de la petición
+    error : function(response) {
+        alert('Disculpe, existió un problema');
+        console.log(response);
+    },
+
+    // código a ejecutar sin importar si la petición falló o no
+    complete : function() {
+        alert('Petición realizada');
+        console.log("Estoy enviando: "+data);
+    }
+});
+}
+
+function handleData(jsonRespuesta){
+    console.log(jsonRespuesta);
+}
+
 function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
 	mesActual = hoy.getMonth() + 1;
     anoActual = hoy.getFullYear();
