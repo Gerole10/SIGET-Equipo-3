@@ -114,7 +114,7 @@ function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
             escribirdias();
         },
         error : function(response) {
-            alert('Se produjo un problema en reunioesMesHoy()');
+            console.log('Se produjo un problema en reunioesMesHoy()');
         }
     });
 }
@@ -137,7 +137,7 @@ function reunionesDiaHoy(){ //Pedirá las reuniones del día de hoy, por defecto
             setDetallesReuniones(response);
         },
         error : function(response) {
-            alert('Se produjo un problema en reunionesDiaHoy()');
+            console.log('Se produjo un problema en reunionesDiaHoy()');
         }
     });
 }
@@ -166,7 +166,7 @@ function reunionesMes(mesConcreto, anoConcreto){ //Recibirá las reuniones de un
             setReunioncesMesC(response);
         },
         error : function(response) {
-            alert('Se produjo un problema en reunionesMes()');
+            console.log('Se produjo un problema en reunionesMes()');
         }
     });
 }
@@ -196,14 +196,7 @@ function reunionesDia(diaConcreto, mesConcreto, anoConcreto){ //Pedirá las reun
             setDetallesReunionDiaC(response);
         },
         error : function(response) {
-            alert('Se produjo un problema en reunionesMes()');
+            console.log('Se produjo un problema en reunionesMes()');
         }
     });
 }
-/*
-Cuando juntemos:
-	- Cambiamos el parámetro de getDetallesReunion() para pasarle el data que te llega de reunionesDiaHoy() para que haga un return de esos datos.
-	- Cambiamos el parámetro de getReunionesMes() para pasarle el data que te llega de reunionesMesHoy() para que haga un return de esos datos.
-	- Hacer función get de los datos que recibe reunionesDia(diaC,mesC,anoC) (get) (getDetallesReunionDiaC())
-	- Hacer función get de los datos que recibe reunionesMes(mesC,anoC) (getReunionesMesC())
-*/

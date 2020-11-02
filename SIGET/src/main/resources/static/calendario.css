@@ -19,13 +19,13 @@ margin: auto;
 
 /*div principal del calendario*/
 #calendario {
-	border-color: #f0b19e;
+	border-color: #6495ED;
 	border-width: 4px;
 	border-style:solid;
 	border-radius: 14px;
 	min-width: 470px;
 	min-height:498px;
-	background-color: #66CDAA;
+	background-color: #5dade2 ;
 	text-align: center;
 	margin-bottom: 20px;
 	
@@ -48,12 +48,12 @@ margin: auto;
 
 #diasc th {
 	color: white;
-	background-color: #5ecdec
+	background-color: #154360 
 }
 
 #diasc td {
 	color: #492736;
-	background-color: #9bf5ff
+	background-color:  #fdfefe     
 }
 
 
@@ -79,13 +79,13 @@ margin: auto;
 }
 /*formulario de busqueda de fechas*/
 #buscafecha {
-	background-color: #f0b19e;
+	background-color: #6495ED;
 	color: #000;
 	padding: 5px
 }
 
 #buscafecha select, #buscafecha input {
-	background-color: #9bf5ff;
+	background-color: #fdfefe;
 	color: #000;
 	font: bold 10pt arial;
 	
@@ -130,7 +130,7 @@ margin: auto;
 	padding: 0.2em;
 }
 #reuniones {
-	border-color: #f0b19e;
+	border-color: #6495ED;
 	border-width: 4px;
 	border-style:solid;
 	max-width: 300px;
@@ -163,13 +163,13 @@ margin: auto;
 }
 
 #cajainforeuniones {
-	border-color: #f0b19e;
+	border-color: #6495ED;
 	border-width: 4px;
 	border-style:solid;
 	max-height:500px;
 	height:500px;
 	max-width:340px;
-	background-color: #fffafa;
+	background-color: #5dade2;
 	text-align: left;
 	margin-left: 20px;
 	margin-bottom: 20px;
@@ -200,7 +200,7 @@ font: bold 11pt arial;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
-    background-color: green;
+    background-color: #58d68d;
     border-radius: 6px;
     border: 2px solid #0016b0;
 	cursor: pointer;
@@ -219,7 +219,7 @@ font: bold 11pt arial;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
-    background-color: red;
+    background-color:  #ec7063;
     border-radius: 6px;
     border: 2px solid #0016b0;
 	cursor: pointer;
@@ -232,14 +232,27 @@ font: bold 11pt arial;
     background-color: #ffffff;
   }
 
-body{background-color: #FFF9AD;padding: 15px;font-family: Arial;}
+body{background-color: #87CEEB;padding: 15px;font-family: Arial;}
 		
 		#menu{
-			background-color: #f0b19e;
+			background-color: #6495ED;
 			margin-left: 30px;
 			margin-right: 30px;
 
 		}
+
+		#btn-modificar{
+			background-color: #4169E1;
+		}
+
+		#btn-convocar{
+			background-color: #4169E1
+		}
+
+		#btn-salir{
+			background-color: #4169E1
+		}
+
 
 		#menu ul{
 			list-style: none;

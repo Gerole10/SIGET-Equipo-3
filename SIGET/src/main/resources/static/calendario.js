@@ -65,11 +65,13 @@ function primeralinea() {
 
 //Rellenar celdas con los días
 function escribirdias() {
-	if(meshoy == hoy.getMonth()){
+
+	if(mescal == hoy.getMonth()){
 		jsonreuniones = getReunionesMes();
 	} else {
-		reunionesMes(hoy.getMonth()+1,hoy.getFullYear());
-        jsonreuniones = getReunionesMesC();
+		jsonreuniones = 0;
+		//reunionesMes(hoy.getMonth()+1,hoy.getFullYear()); //Tiene que tener funcionalidad
+        //jsonreuniones = getReunionesMesC();
 	}
 
     //Buscar dia de la semana del dia 1 del mes:
@@ -97,7 +99,7 @@ function escribirdias() {
     	    celda.setAttribute('id',midia);
 
             //Recuperar estado inicial al cambiar de mes:
-            celda.style.backgroundColor = "#F0FFF0";
+            celda.style.backgroundColor = "#fdfefe";
             celda.style.color = "#492736";
             celda.style.border = "2px double #fffafa";
 
@@ -114,11 +116,11 @@ function escribirdias() {
 
             //Destacar la fecha actual
             if(mimes == meshoy && midia == diahoy && mianno == annohoy ) { 
-          	    celda.style.backgroundColor = "#f0b19e";
+          	    celda.style.backgroundColor = "#76d7c4";
               	celda.innerHTML = "<cite title='Fecha Actual'>"+ midia +"</cite>";
                 //celda.style.border = "thick solid #9370DB";
                 celda.style.font = "bold 18pt arial";
-                celda.style.color = "#BA55D3";
+                celda.style.color = "#2874a6";
            	} else {
                	celda.style.font = "normal 14pt arial";
             }
@@ -126,12 +128,14 @@ function escribirdias() {
             //Pasar al siguiente día
             midia = midia + 1;
             diames.setDate(midia);
-            
-            for(ii = 0; ii < jsonreuniones.reuniones.length; ii++){ //Resalta cuando hay una reunión ese día
-              	if(celda.getAttribute("id") == jsonreuniones.reuniones[ii]){
-              		celda.style.backgroundColor = "#98FB98";
-               	}
-            }
+
+            if(jsonreuniones != 0){
+	            for(ii = 0; ii < jsonreuniones.reuniones.length; ii++){ //Resalta cuando hay una reunión ese día
+	              	if(celda.getAttribute("id") == jsonreuniones.reuniones[ii]){
+	              		celda.style.backgroundColor = "#d1f2eb";
+	               	}
+	            }
+        	}
         }
     }
 
@@ -193,13 +197,3 @@ function mifecha() {
         escribirdias() //escribir tabla
     }
 }
-
-/*
-Cuando el login sea correcto llamará al calendario personal (calendario.html+calendario.js) mandándole el usuario que ha accedido al sistema almacenándolo
-en una cookie. En la función window.onload() llamará a reunionesMesHoy() en funcionesCalendario.js pidiéndole los días del mes actual en los que hay alguna reunión.
-Posteriormente cargará el calendario remarcando los días en los que hay reunión y, en la misma función window.onload(), llamará a reunionesDiaHoy() para pedir
-las reuniones del día actual y así poder mostrarlas en la lista de reuniones (form del medio). El sistema se quedará esperando hasta que seleccione una reunión concreta
-de la que se mostrará dicha información en el panel de la derecha o bien hasta que seleccione otro día. En el segundo caso se llamará a reunionesMes() pasándole
-por parámetros el mes y el año concretos que se ha seleccionado y recibirá los días que hay reunión en ese mes concreto. En caso de que seleccione un día conreto para 
-saber sus reuniones, se llamará a reunionesDia() dándole por parámetros el día concreto que queremos las reuniones y recibirá la información detallada de las reuniones.
-*/
