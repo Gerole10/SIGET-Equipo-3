@@ -68,10 +68,17 @@ function primeralinea() {
 function escribirdias() {
 
 	if(meshoy == hoy.getMonth()){
-		var jsonReuniones = getReunionesMes();
+		jsonreuniones = getReunionesMes();
+        // while(jsonreuniones == undefined){
+        //     jsonreuniones = getReunionesMes();
+        // }
 	} else {
-		var jsonReuniones = getReunionesMesC(hoy.getMonth()+1,hoy.getFullYear());
+		reunionesMes(hoy.getMonth()+1,hoy.getFullYear());
+        jsonreuniones = getReunionesMesC();
 	}
+
+    console.log("Todo "+jsonreuniones);
+    console.log("Reuniones "+jsonreuniones.reuniones);
 
     //Buscar dia de la semana del dia 1 del mes:
     primeromes = new Date(annocal,mescal,"1") //buscar primer día del mes

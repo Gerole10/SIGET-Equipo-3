@@ -1,5 +1,6 @@
 package es.uclm.esi.controller;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -58,7 +59,9 @@ public class ControllerCalendarioPersonal {
 		jsoret.put("mes", 11);
 		jsoret.put("ano",2020);
 		int[] dias = {05,12,17,21,26};
-		jsoret.put("reuniones", dias);
+		JSONArray jsa = new JSONArray();
+		jsa.put(dias);
+		jsoret.put("reuniones", jsa);
         return jsoret.toString();
     }
 	

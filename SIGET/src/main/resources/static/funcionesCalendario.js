@@ -1,5 +1,8 @@
 var hoy = new Date();
 
+var infoMes;
+var detallesReuniones;
+
 function clickInfoReuniones(ID){ //TODO cambiar metodo de obtención de los días que tienen o no reunión
 
     var jsonReunionesDia = getDetallesReuniones(ID);
@@ -71,23 +74,30 @@ function mostrarInfoReunion(idReunion,diaReunion){
     }
 }
 
-function getDetallesReuniones(data){
-    console.log(data.reuniones);
-    return data;
+function getDetallesReuniones(){
+    return detallesReuniones;
 }
 
-function getReunionesMes(data){
-    console.log("Y el mes en el que estamos es "+data.mes);
-    return data;
+function setDetallesReuniones(data){
+    detallesReuniones = data;
+}
+
+function getReunionesMes(){
+    return infoMes;
+}
+
+function setReunionesMes(data){
+    infoMes = data;
+    console.log("Esto es lo que devuelvo "+infoMes.reuniones);
 }
 
 function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
     mesActual = hoy.getMonth() + 1;
     anoActual = hoy.getFullYear();
     var info = {
-        "type" : "PeticionReunionesMes",
-        "mes" : mesActual,
-        "ano" : anoActual
+        type : "PeticionReunionesMes",
+        mes : mesActual,
+        ano : anoActual
     };
     $.ajax({
         url : '/getCalendarioPersonalMes',
@@ -96,8 +106,8 @@ function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
         dataType: 'json',
         contentType: 'application/json',
         success : function(response) {
-            console.log("El ano en el que estamos es "+ response.ano);
-            getReunionesMes(response);
+            console.log("He pasado por aquí y he soltado "+ response.reuniones);
+            setReunionesMes(response);
         },
         error : function(response) {
             alert('Se produjo un problema en reunioesMesHoy()');
@@ -120,8 +130,7 @@ function reunionesDiaHoy(){ //Pedirá las reuniones del día de hoy, por defecto
         dataType: 'json',
         contentType: 'application/json',
         success : function(response) {
-            console.log("Pues por ejemplo un dato de la reunion es el dia "+ response.dia);
-            getDetallesReuniones(response);
+            setDetallesReuniones(response);
         },
         error : function(response) {
             alert('Se produjo un problema en reunionesDiaHoy()');
@@ -129,8 +138,12 @@ function reunionesDiaHoy(){ //Pedirá las reuniones del día de hoy, por defecto
     });
 }
 
-function getReunioncesMesC(data){
-    return data;
+function getReunioncesMesC(){
+    return infoMes;
+}
+
+function setReunionesMesC(data){
+    infoMes = data;
 }
 
 function reunionesMes(mesConcreto, anoConcreto){ //Recibirá las reuniones de un mes concreto
@@ -146,8 +159,7 @@ function reunionesMes(mesConcreto, anoConcreto){ //Recibirá las reuniones de un
         dataType: 'json',
         contentType: 'application/json',
         success : function(response) {
-            console.log("La respuesta llegó"+response);
-            getReunioncesMesC(response);
+            setReunioncesMesC(response);
         },
         error : function(response) {
             alert('Se produjo un problema en reunionesMes()');
@@ -155,8 +167,12 @@ function reunionesMes(mesConcreto, anoConcreto){ //Recibirá las reuniones de un
     });
 }
 
-function getDetallesReunionDiaC(data){
-    return data;
+function getDetallesReunionDiaC(){
+    return detallesReuniones;
+}
+
+function setDetallesReunionDiaC(data){
+    detallesReuniones = data;
 }
 
 function reunionesDia(diaConcreto, mesConcreto, anoConcreto){ //Pedirá las reuniones de un día concreto
@@ -173,8 +189,7 @@ function reunionesDia(diaConcreto, mesConcreto, anoConcreto){ //Pedirá las reun
         dataType: 'json',
         contentType: 'application/json',
         success : function(response) {
-            console.log("La respuesta llegó"+response);
-            getDetallesReunionDiaC(response);
+            setDetallesReunionDiaC(response);
         },
         error : function(response) {
             alert('Se produjo un problema en reunionesMes()');
