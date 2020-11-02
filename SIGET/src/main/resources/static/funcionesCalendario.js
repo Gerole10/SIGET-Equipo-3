@@ -15,27 +15,6 @@ function clickInfoReuniones(ID){ //Comprobar si realmente hay reunion ese día p
     formEnBlanco();
     detallesEnBlanco();
 
-  //   for(var k = 0; k < infoMes.reuniones.length; k++){
-		// if (ID == infoMes.reuniones[k]) {
-		// 	formEnBlanco();
-		// 	var celda = document.getElementById(ID);
-  //       	celda.style.border = "2px double coral";
-  //       	if(jsonReunionesDia.reuniones.length == 0){
-	 //            for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
-	 //               	document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' "+
-	 //              	"onclick='mostrarInfoReunion("+jsonReunionesDia.reuniones[i].id+","+jsonReunionesDia.dia+")'>"+
-	 //                jsonReunionesDia.reuniones[i].titulo+"</label>"+
-	 //                "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
-	 //            }
-	 //        }
-	 //        break;
-		// } else {
-		// 	formEnBlanco();
-		// 	document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
-		// 	break;;
-		// }
-  //   }
-
     var hayreu = null;
 
     for(var k = 0; k < infoMes.reuniones.length; k++){

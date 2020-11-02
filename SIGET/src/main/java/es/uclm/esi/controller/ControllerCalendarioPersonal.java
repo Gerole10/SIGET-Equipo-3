@@ -83,7 +83,7 @@ public class ControllerCalendarioPersonal {
 		Inforeu1.put("hora", "11:30");
 		Inforeu1.put("duracion", 90);
 		Inforeu1.put("asistentes", asistentes);
-		Inforeu1.put("descripcion", "Una reunion para determinar el diseno del frontend");
+		Inforeu1.put("descripcion", "Una reunion para determinar el diseno del frontend"); 
 		
 		Inforeu2.put("titulo", "Daily");
 		Inforeu2.put("id", 2);
