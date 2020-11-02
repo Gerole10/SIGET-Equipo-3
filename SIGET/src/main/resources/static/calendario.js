@@ -126,9 +126,8 @@ function escribirdias() {
             //Pasar al siguiente día
             midia = midia + 1;
             diames.setDate(midia);
-            var tamanoJSON = jsonreuniones.reuniones.length;
-            console.log("El tamaño de las reuniones es "+tamanoJSON);
-            for(ii = 0; ii < tamanoJSON; ii++){ //Resalta cuando hay una reunión ese día
+            
+            for(ii = 0; ii < jsonreuniones.reuniones.length; ii++){ //Resalta cuando hay una reunión ese día
               	if(celda.getAttribute("id") == jsonreuniones.reuniones[ii]){
               		celda.style.backgroundColor = "#98FB98";
                	}

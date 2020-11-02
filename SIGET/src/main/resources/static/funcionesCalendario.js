@@ -3,34 +3,60 @@ var hoy = new Date();
 var infoMes;
 var detallesReuniones;
 
-function clickInfoReuniones(ID){ //TODO cambiar metodo de obtención de los días que tienen o no reunión
+function clickInfoReuniones(ID){ //Comprobar si realmente hay reunion ese día porque son datos fijos
 
     var jsonReunionesDia = getDetallesReuniones();
 
+
     for(j = 0; j < 31; j++){
         document.getElementById(j).style.border = "2px double #fffafa";
-    }
-
-    if(ID != 0){
-        var celda = document.getElementById(ID);
-        celda.style.border = "2px double coral";
-    }
+	}
 
     formEnBlanco();
     detallesEnBlanco();
 
-    if(ID != 0){
-        if(jsonReunionesDia.reuniones == 0){
-            document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
-        } else {
-            for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
-                document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' "+
-                	"onclick='mostrarInfoReunion("+jsonReunionesDia.reuniones[i].id+","+jsonReunionesDia.dia+")'>"+
-                    jsonReunionesDia.reuniones[i].titulo+"</label>"+
-                    "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
-            }
-        }
-    }
+  //   for(var k = 0; k < infoMes.reuniones.length; k++){
+		// if (ID == infoMes.reuniones[k]) {
+		// 	formEnBlanco();
+		// 	var celda = document.getElementById(ID);
+  //       	celda.style.border = "2px double coral";
+  //       	if(jsonReunionesDia.reuniones.length == 0){
+	 //            for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
+	 //               	document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' "+
+	 //              	"onclick='mostrarInfoReunion("+jsonReunionesDia.reuniones[i].id+","+jsonReunionesDia.dia+")'>"+
+	 //                jsonReunionesDia.reuniones[i].titulo+"</label>"+
+	 //                "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
+	 //            }
+	 //        }
+	 //        break;
+		// } else {
+		// 	formEnBlanco();
+		// 	document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
+		// 	break;;
+		// }
+  //   }
+
+    var hayreu = null;
+
+    for(var k = 0; k < infoMes.reuniones.length; k++){
+		if (ID == infoMes.reuniones[k]) {
+			hayreu = true;
+		}
+	}
+
+	if(hayreu){
+		var celda = document.getElementById(ID);
+        celda.style.border = "2px double coral";
+	    for(i = 0; i < jsonReunionesDia.reuniones.length; i++){
+	       	document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div id='reunionYhora'><label id='reunion' "+
+	       	"onclick='mostrarInfoReunion("+jsonReunionesDia.reuniones[i].id+","+jsonReunionesDia.dia+")'>"+
+	      	jsonReunionesDia.reuniones[i].titulo+"</label>"+
+	        "<label id='horasreunion'>"+jsonReunionesDia.reuniones[i].hora+"</label><br></div>");
+	    }
+	} else {
+		document.getElementById("formularioPreview").insertAdjacentHTML('beforeend',"<div><label>NO HAY REUNIONES</label></div>");
+	}
+
 }
 
 function formEnBlanco(){

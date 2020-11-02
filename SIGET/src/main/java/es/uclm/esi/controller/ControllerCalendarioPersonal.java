@@ -73,12 +73,9 @@ public class ControllerCalendarioPersonal {
 		jsoret.put("mes", 11);
 		jsoret.put("ano", 2020);
 		
-		JSONArray jsa = new JSONArray();
-		JSONObject reu1 = new JSONObject();		
+		JSONArray jsa = new JSONArray();	
 		JSONObject Inforeu1 = new JSONObject();
-		JSONObject reu2 = new JSONObject();
 		JSONObject Inforeu2 = new JSONObject();
-		JSONObject reu3 = new JSONObject();
 		JSONObject Inforeu3 = new JSONObject();
 		
 		Inforeu1.put("titulo", "Frontend");
@@ -87,7 +84,6 @@ public class ControllerCalendarioPersonal {
 		Inforeu1.put("duracion", 90);
 		Inforeu1.put("asistentes", asistentes);
 		Inforeu1.put("descripcion", "Una reunion para determinar el diseno del frontend");
-		reu1.put("1", Inforeu1);
 		
 		Inforeu2.put("titulo", "Daily");
 		Inforeu2.put("id", 2);
@@ -95,7 +91,6 @@ public class ControllerCalendarioPersonal {
 		Inforeu2.put("duracion", 15);
 		Inforeu2.put("asistentes", asistentes);
 		Inforeu2.put("descripcion", "Reunion daily para comentar el estado del proyecto");
-		reu1.put("2", Inforeu2);
 		
 		Inforeu3.put("titulo", "Revisión del sprint");
 		Inforeu3.put("id", 3);
@@ -103,11 +98,10 @@ public class ControllerCalendarioPersonal {
 		Inforeu3.put("duracion", 120);
 		Inforeu3.put("asistentes", asistentes);
 		Inforeu3.put("descripcion", "Reunion para ver los resultados del sprint");
-		reu1.put("3", Inforeu3);
 		
-		jsa.put(reu1);
-		jsa.put(reu2);
-		jsa.put(reu3);
+		jsa.put(Inforeu1);
+		jsa.put(Inforeu2);
+		jsa.put(Inforeu3);
 		
 		jsoret.put("reuniones", jsa);
         return jsoret.toString();
