@@ -1,7 +1,6 @@
 /*instrucciones generales*/
-
 *{
-margin: auto;
+	margin: auto;
 }
 
 /*cabecera de la página*/
@@ -31,6 +30,7 @@ margin: auto;
 	
 	
 }
+
 /*tabla del calendario*/
 #diasc {
 	border-collapse: separate;
@@ -77,6 +77,7 @@ margin: auto;
 	color: red;
 	text-decoration: underline;
 }
+
 /*formulario de busqueda de fechas*/
 #buscafecha {
 	background-color: #6495ED;
@@ -98,6 +99,7 @@ margin: auto;
 #buscafecha  [type=button] {
 	cursor: pointer;
 }
+
 /*cabecera del calendario*/
 #anterior {
 	float: left;
@@ -129,6 +131,7 @@ margin: auto;
 	font: bold 15pt "arial black";
 	padding: 0.2em;
 }
+
 #reuniones {
 	border-color: #6495ED;
 	border-width: 4px;
@@ -142,20 +145,24 @@ margin: auto;
 	margin-bottom: 20px;
 	overflow-y: scroll;
 }
+
 #titulosreunion{
 	font: 11pt arial;
 	padding: 5px 5px 5px 5px;
 	text-align: left;
 }
+
 #horasreunion{
 	font: bold 11pt arial;
 	padding: 5px 5px 5px 5px;
 	text-align: center;
 }
+
 #reunionYhora{
 	font: 11pt arial;
 	padding: 5px 5px 5px 5px;
 }
+
 #reunion:hover {
 	color: red;
 	text-decoration: underline;
@@ -176,8 +183,8 @@ margin: auto;
 }
 
 #inputtitulo, #inputhora, #inputdescripcion, #inputasistentes {
- margin: 15px;
-font: bold 11pt arial; 
+	margin: 15px;
+	font: bold 11pt arial; 
 }
 
 #horareunion{
@@ -185,8 +192,8 @@ font: bold 11pt arial;
 }
 
 #descripcion, #asistentes {
-		resize: none;
-		font: normal 11pt arial;
+	resize: none;
+	font: normal 11pt arial;
 }
 
 #inputbotones{
@@ -206,14 +213,14 @@ font: bold 11pt arial;
 	cursor: pointer;
 	margin-left:auto;
 	margin-right :auto;
-	
-  }
-  .botonAceptar:hover{
+}
+
+.botonAceptar:hover{
     color: green;
-    background-color: #ffffff;
-  }
+	background-color: #ffffff;
+}
   
-  .botonRechazar{
+.botonRechazar{
     text-decoration: none;
     padding: 10px;
     font-weight: 600;
@@ -225,47 +232,48 @@ font: bold 11pt arial;
 	cursor: pointer;
 	margin-left:20px;
 	margin-right :auto;
-	
-  }
-  .botonRechazar:hover{
+}
+
+.botonRechazar:hover{
     color: red;
-    background-color: #ffffff;
-  }
+	background-color: #ffffff;
+}
 
-body{background-color: #87CEEB;padding: 15px;font-family: Arial;}
+body{
+	background-color: #87CEEB;
+	padding: 15px;
+	font-family: Arial;
+}
 		
-		#menu{
-			background-color: #6495ED;
-			margin-left: 30px;
-			margin-right: 30px;
+#menu{
+	background-color: #6495ED;
+	margin-left: 30px;
+	margin-right: 30px;
+}
 
-		}
+#btn-modificar{
+	background-color: #4169E1;
+}
 
-		#btn-modificar{
-			background-color: #4169E1;
-		}
+#btn-convocar{
+	background-color: #4169E1
+}
 
-		#btn-convocar{
-			background-color: #4169E1
-		}
-
-		#btn-salir{
-			background-color: #4169E1
-		}
+#btn-salir{
+	background-color: #4169E1
+}
 
 
-		#menu ul{
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
+#menu ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
 
-		#menu ul li{
-			display: inline-block;
-		}
+#menu ul li{
+	display: inline-block;
+}
 
-		.item-r{
-			float: right;
-		}
-		
-		
+.item-r{
+	float: right;
+}
