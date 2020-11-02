@@ -65,16 +65,12 @@ function primeralinea() {
 
 //Rellenar celdas con los días
 function escribirdias() {
-	console.log("escribirdias");
 	if(meshoy == hoy.getMonth()){
 		jsonreuniones = getReunionesMes();
 	} else {
 		reunionesMes(hoy.getMonth()+1,hoy.getFullYear());
         jsonreuniones = getReunionesMesC();
 	}
-
-    console.log("Todo "+jsonreuniones);
-    console.log("Reuniones "+jsonreuniones.reuniones);
 
     //Buscar dia de la semana del dia 1 del mes:
     primeromes = new Date(annocal,mescal,"1") //buscar primer día del mes
@@ -131,6 +127,7 @@ function escribirdias() {
             midia = midia + 1;
             diames.setDate(midia);
             var tamanoJSON = jsonreuniones.reuniones.length;
+            console.log("El tamaño de las reuniones es "+tamanoJSON);
             for(ii = 0; ii < tamanoJSON; ii++){ //Resalta cuando hay una reunión ese día
               	if(celda.getAttribute("id") == jsonreuniones.reuniones[ii]){
               		celda.style.backgroundColor = "#98FB98";

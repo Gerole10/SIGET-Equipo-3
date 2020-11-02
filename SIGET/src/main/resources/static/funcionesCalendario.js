@@ -5,7 +5,7 @@ var detallesReuniones;
 
 function clickInfoReuniones(ID){ //TODO cambiar metodo de obtención de los días que tienen o no reunión
 
-    var jsonReunionesDia = getDetallesReuniones(ID);
+    var jsonReunionesDia = getDetallesReuniones();
 
     for(j = 0; j < 31; j++){
         document.getElementById(j).style.border = "2px double #fffafa";
@@ -88,7 +88,6 @@ function getReunionesMes(){
 
 function setReunionesMes(data){
     infoMes = data;
-    console.log("setReunionesMes(data)");
 }
 
 function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
@@ -106,7 +105,6 @@ function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
         dataType: 'json',
         contentType: 'application/json',
         success : function(response) {
-            console.log("reunionesMesHoy()");
             setReunionesMes(response);
             escribirdias();
         },

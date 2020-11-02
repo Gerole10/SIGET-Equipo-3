@@ -59,9 +59,7 @@ public class ControllerCalendarioPersonal {
 		jsoret.put("mes", 11);
 		jsoret.put("ano",2020);
 		int[] dias = {05,12,17,21,26};
-		JSONArray jsa = new JSONArray();
-		jsa.put(dias);
-		jsoret.put("reuniones", jsa);
+		jsoret.put("reuniones", dias);
         return jsoret.toString();
     }
 	
