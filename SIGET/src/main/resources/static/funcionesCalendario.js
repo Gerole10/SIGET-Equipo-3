@@ -72,171 +72,115 @@ function mostrarInfoReunion(idReunion,diaReunion){
 }
 
 function getDetallesReuniones(data){
+    console.log(data.reuniones);
     return data;
 }
 
 function getReunionesMes(data){
+    console.log("Y el mes en el que estamos es "+data.mes);
     return data;
 }
 
-function pruebaConexion(){
+function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
+    mesActual = hoy.getMonth() + 1;
+    anoActual = hoy.getFullYear();
     var info = {
-        id: 123,
-        ejemplo: "Pues esto mismo"
+        "type" : "PeticionReunionesMes",
+        "mes" : mesActual,
+        "ano" : anoActual
     };
     $.ajax({
-    // la URL para la petición
-    url : '/pruebaConexion',
-
-    // la información a enviar
-    data : JSON.stringify(info),
-
-    // especifica si será una petición POST o GET
-    type : "post",
-
-    // el tipo de información que se espera de respuesta
-    dataType: 'json',
-    contentType: 'application/json',
-
-    // código a ejecutar si la petición es satisfactoria;
-    // la respuesta es pasada como argumento a la función
-    success : function(response) {
-        console.log("La respuesta llegó");
-        var hey = response.hey;
-        console.log("response.hey es: "+ hey);
-    },
-
-    // código a ejecutar si la petición falla;
-    // son pasados como argumentos a la función
-    // el objeto de la petición en crudo y código de estatus de la petición
-    error : function(response) {
-        alert('Disculpe, existió un problema');
-        console.log(response);
-    },
-
-    // código a ejecutar sin importar si la petición falló o no
-    complete : function() {
-        alert('Petición realizada');
-    }
-});
-}
-
-function handleData(jsonRespuesta){
-    console.log(jsonRespuesta);
-}
-
-function reunionesMesHoy(){ //Recibirá los días en los que hay reunión
-	mesActual = hoy.getMonth() + 1;
-    anoActual = hoy.getFullYear();
-	var info = {
-        "type" : "PeticionReunionesMes",
-		"mes" : mesActual,
-		"ano" : anoActual
-    };
-    var infoAjax = {type: "GET",
-        url: "/getCalendarioPersonalMes",
-        dataType: 'application/json',
-        headers: {"Authorization": "Bearer " + localStorage.getItem("jwt")},
-        data: JSON.stringify(info),
-        success: function (event){
-            console.log(event);
-            var data = event.data;
-            data = JSON.parse(data);
-            getReunionesMes(data); 
-        },
-        error: function(response){
-            console.log(response);
-            alert("ERROR en reunionesMesHoy()"+response);
-        }};
-    $.ajax(infoAjax);
-}
-
-function reunionesDiaHoy(){ //Mostrará las reuniones que hay en el día de hoy, por defecto
-	mesActual = meshoy+1;
-	var info = {
-        "type" : "PeticionDatosReunion",
-		"dia" : hoy.getDay(),
-		"mes" : mesActual,
-		"ano" : hoy.getFullYear()
-    };
-
-    var infoAjax = {
-        type: "GET",
-        url: "/getDetallesReunion",
-        dataType: 'application/json',
-        headers: {"Authorization": "Bearer " + localStorage.getItem("jwt")},
-        data: JSON.stringify(info),
-        success: function (event){
-            var data = event.data;
-            data = JSON.parse(data);
-            getReunionesMes(data); 
-        },
-        error: function(){
-           alert("ERROR");
-        }};
-    $.ajax(infoAjax);
-}
-
-function getReunionesMesC(data){
-	return data;
-}
-
-function reunionesMes(mesConcreto,anoConcreto){ //Recibirá las reuniones de un mes concreto y las mostrará
-	var info = {
-        type : "PeticionReunionesMes",
-		mes : mesConcreto,
-		ano : anoConcreto
-    };
-    
-    var data = {
+        url : '/getCalendarioPersonalMes',
         data : JSON.stringify(info),
-        url : "/getCalendarioPersonalMes",
-        type : "get",
+        type : "post",
+        dataType: 'json',
         contentType: 'application/json',
-        headers:{'Authorization':'Bearer '+localStorage.getItem('jwt')},
-        success : function(event) {
-        	var data = event.data;
-			data = JSON.parse(data);
-
+        success : function(response) {
+            console.log("El ano en el que estamos es "+ response.ano);
+            getReunionesMes(response);
         },
         error : function(response) {
-            alert("Error en la petición de reuniones");
+            alert('Se produjo un problema en reunioesMesHoy()');
         }
+    });
+}
+
+function reunionesDiaHoy(){ //Pedirá las reuniones del día de hoy, por defecto
+    mesActual = hoy.getMonth() + 1;
+    var info = {
+        "type" : "PeticionDatosReunion",
+        "dia" : hoy.getDay(),
+        "mes" : mesActual,
+        "ano" : hoy.getFullYear()
     };
-    $.ajax(data);
+    $.ajax({
+        url : '/getDetallesReunion',
+        data : JSON.stringify(info),
+        type : "post",
+        dataType: 'json',
+        contentType: 'application/json',
+        success : function(response) {
+            console.log("Pues por ejemplo un dato de la reunion es el dia "+ response.dia);
+            getDetallesReuniones(response);
+        },
+        error : function(response) {
+            alert('Se produjo un problema en reunionesDiaHoy()');
+        }
+    });
+}
+
+function getReunioncesMesC(data){
+    return data;
+}
+
+function reunionesMes(mesConcreto, anoConcreto){ //Recibirá las reuniones de un mes concreto
+    var info = {
+        type : "PeticionReunionesMes",
+        mes : mesConcreto,
+        ano : anoConcreto
+    };
+    $.ajax({
+        url : '/getCalendarioPersonalMes',
+        data : JSON.stringify(info),
+        type : "post",
+        dataType: 'json',
+        contentType: 'application/json',
+        success : function(response) {
+            console.log("La respuesta llegó"+response);
+            getReunioncesMesC(response);
+        },
+        error : function(response) {
+            alert('Se produjo un problema en reunionesMes()');
+        }
+    });
 }
 
 function getDetallesReunionDiaC(data){
-	return data;
+    return data;
 }
 
-function reunionesDia(diaConcreto,mesConcreto,anoConcreto){ //Mostrará las reuniones de un día concreto
-	mesActual = meshoy+1;
-	var info = {
+function reunionesDia(diaConcreto, mesConcreto, anoConcreto){ //Pedirá las reuniones de un día concreto
+    var info = {
         type : "PeticionDatosReunion",
-		dia : diaConcreto,
-		mes : mesConcreto,
-		ano : anaConcretoConcreto
+        dia : diaConcreto,
+        mes : mesConcreto,
+        ano : anaConcretoConcreto
     };
-    
-    var data = {
+    $.ajax({
+        url : '/getDetallesReunion',
         data : JSON.stringify(info),
-        url : "/getDetallesReunion",
-        type : "get",
+        type : "post",
+        dataType: 'json',
         contentType: 'application/json',
-        headers:{'Authorization':'Bearer '+localStorage.getItem('jwt')},
-        success : function(event) {
-            var data = event.data;
-			data = JSON.parse(data);
-			getDetallesReunionDiaC(data);
+        success : function(response) {
+            console.log("La respuesta llegó"+response);
+            getDetallesReunionDiaC(response);
         },
         error : function(response) {
-            alert("Error en la petición de reuniones");
+            alert('Se produjo un problema en reunionesMes()');
         }
-    };
-    $.ajax(data);
+    });
 }
-
 /*
 Cuando juntemos:
 	- Cambiamos el parámetro de getDetallesReunion() para pasarle el data que te llega de reunionesDiaHoy() para que haga un return de esos datos.

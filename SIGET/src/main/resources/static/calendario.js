@@ -6,7 +6,9 @@ diassemana = ["lun","mar","mié","jue","vie","sáb","dom"];
 //Tras cargarse la página ...
 window.onload = function() {
 
-    pruebaConexion()
+    //Llamadas iniciales para la petición de información de reuniones
+    reunionesMesHoy()
+    reunionesDiaHoy()
 
 	//Fecha actual
 	hoy = new Date(); //objeto fecha actual
@@ -33,16 +35,11 @@ window.onload = function() {
 	// Definir elementos iniciales:
 	mescal = meshoy; //mes principal
 	annocal = annohoy //año principal
-    console.log("Shegué hasta aquí")
-	//Llamadas iniciales para la petición de información de reuniones
-	//reunionesMesHoy()
-	//reunionesDiaHoy()
 
 	//Iniciar calendario:
 	cabecera() 
 	primeralinea()
 	escribirdias()
-    console.log("Pero hasta aquí no :(")
 }
 
 //FUNCIONES de creación del calendario:
