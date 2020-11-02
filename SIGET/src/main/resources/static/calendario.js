@@ -7,8 +7,8 @@ diassemana = ["lun","mar","mié","jue","vie","sáb","dom"];
 window.onload = function() {
 
     //Llamadas iniciales para la petición de información de reuniones
-    reunionesMesHoy()
-    reunionesDiaHoy()
+    reunionesMesHoy();
+    reunionesDiaHoy();
 
 	//Fecha actual
 	hoy = new Date(); //objeto fecha actual
@@ -37,9 +37,8 @@ window.onload = function() {
 	annocal = annohoy //año principal
 
 	//Iniciar calendario:
-	cabecera() 
-	primeralinea()
-	escribirdias()
+	cabecera(); 
+	primeralinea();
 }
 
 //FUNCIONES de creación del calendario:
@@ -66,12 +65,9 @@ function primeralinea() {
 
 //Rellenar celdas con los días
 function escribirdias() {
-
+	console.log("escribirdias");
 	if(meshoy == hoy.getMonth()){
 		jsonreuniones = getReunionesMes();
-        // while(jsonreuniones == undefined){
-        //     jsonreuniones = getReunionesMes();
-        // }
 	} else {
 		reunionesMes(hoy.getMonth()+1,hoy.getFullYear());
         jsonreuniones = getReunionesMesC();

@@ -88,7 +88,7 @@ function getReunionesMes(){
 
 function setReunionesMes(data){
     infoMes = data;
-    console.log("Esto es lo que devuelvo "+infoMes.reuniones);
+    console.log("setReunionesMes(data)");
 }
 
 function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
@@ -106,8 +106,9 @@ function reunionesMesHoy(){ //Recibirá un array de días en los que hay reunion
         dataType: 'json',
         contentType: 'application/json',
         success : function(response) {
-            console.log("He pasado por aquí y he soltado "+ response.reuniones);
+            console.log("reunionesMesHoy()");
             setReunionesMes(response);
+            escribirdias();
         },
         error : function(response) {
             alert('Se produjo un problema en reunioesMesHoy()');
