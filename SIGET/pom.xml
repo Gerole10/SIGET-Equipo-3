@@ -112,9 +112,6 @@
 				<version>3.0.3</version>
 				<configuration>
 					<appName>siget-equipo3</appName>
-					<buildpacks>
-						<buildpack>heroku/java</buildpack>
-					</buildpacks>
 				</configuration>
 			</plugin>
 		</plugins>
