@@ -7,6 +7,6 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: "42d4ef22-3dd9-445c-aa7c-4b5e25fc2e80" 
+    secure: "ec836049-8210-472c-bf8d-98243e0d2c7b" 
   on: 
     branch: develop
