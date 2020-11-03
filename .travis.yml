@@ -3,3 +3,4 @@ language: java
 script:
     - cd SIGET
     - mvn test
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
