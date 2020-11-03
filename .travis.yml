@@ -1,11 +1,10 @@
 language: java
 
+script:
+    - cd SIGET
+    - mvn build
+    
 deploy:
   provider: heroku
   api_key:
-    secure: "42d4ef22-3dd9-445c-aa7c-4b5e25fc2e80"
-
-script:
-    - cd SIGET
-    - mvn test
-    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+    secure: "42d4ef22-3dd9-445c-aa7c-4b5e25fc2e80" 
