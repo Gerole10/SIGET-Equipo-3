@@ -8,5 +8,6 @@ deploy:
   provider: heroku
   api_key:
     secure: ec836049-8210-472c-bf8d-98243e0d2c7b
+  app: siget-equipo3
   on: 
     branch: develop
