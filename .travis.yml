@@ -7,7 +7,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: ec836049-8210-472c-bf8d-98243e0d2c7b
+    secure: "QheZGQLhSACjZy5TNlP9Tu566mfY7r3yg6ixUqZOIAqyTUN2KHJeGPayFbjlOuYr8D33RXSSA8gQdWqVGLDnREBjvE13NvanCdJfgVP+ulHdZlgUwqEfgdQy8E704PTWAom+C3o4Lc5y4M/AKLPHC+INA8ztkm1NfRZeq2xnA2BrIrKFIz7QUCGqA3AfO8YVgxwVPRxecdWkPqDt+AFNtl1+yLoftJLShicDSsF44c6Vwfw4VrlzobBHwjrp9DCkRx8UPfX3OouXYXFB0jmCn05VMzUk16yvPwzPaBsXS7DYGnZmnNGRC9MyWmrt8CWgaMlxkyFbZ0Au8FHRSXxDBFkoA02bEqVGXBovmw/GbDXU80K4eeHGzHO4lCnFIrHDxHY5NwjueDZdQ1UApHFJYsH0QfSfsH/fbj9u+V9Op6JZHrAIvsO85oOTAANshr8pFmWfWYld+wtyIbJwSdODzoFJHecbhS8KUWoIN30dpNu1WhOFQf/RLYkU64dvAh61hWP2++CpHvxBw+x9JkMgzy/uGjajaXY+zApAMKcgQY4DHGNwUrLyjSaSVD3WLGOYzpfHmiU8+t+SUOpQtPPpNB/2kMvTV1FBISwWOBF5eTqvjIVkBrZSHN91GeLZhuqCchzLyKlvRKSQzYFvL5v2n7XfKwGo1iimKAxOOiBDKXU="
   app: siget-equipo3
   on: 
     branch: develop
