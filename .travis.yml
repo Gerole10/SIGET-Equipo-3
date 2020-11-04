@@ -1,13 +1,10 @@
 language: java
-
 script:
-    - cd SIGET
-    - mvn compile
-    
+- cd SIGET
+- mvn compile
 deploy:
   provider: heroku
   api_key:
-    secure: "tvJJq6Z+s7ehg3n+M36aIN3lZeahhA4t+wK4VVDKfxnTgYfhdTk2Ad+fKSjqqW7MXL1efGSjl7kpol9sCITIMZaXw84GaGFR+JI1qPNSWanIkqaUJLs19IPAqCivudTSBAMimgoz5cFsFoeeeNRWkj3t3luHEU69mBpvb6U8v4zjQQhqzAjLhDvHsVRhiq+iK/jMBQ7lNcU/Gzwz2Dal2S+cdUy8U+uT1hXips3JrOv0fPIZjTpkvQRoIXOwF+ynSJm1rR+ees2F+9iJwZtW4CpvMQCTJTKV5b9RjOkH4madNhc3nvBwWS70wtYkLeQUqSc5InDu/r54usYQ2l+dDc1qNPG+Om0Hcxk4+/IrVW+V/3mJU9cPLBoLqSfQkFLG74lU3aTvLp67ZLVMnv8K2YumVhmgSWF4UXD4LNshvTeOidJRu1FampuBL3m46x/akU8FxFarmzXt71UQ3+iS6LB+3WB6GrC5NqZwMzGlZrAF9uu1qoTxwWa00BOvhW3PZpoJU2XLpZUNY81MsQJpLYkNgJ6xBx0i9y5vHziEJ+or3Yvrf4IE5W//K4/5mC02zaAkUeVnLI/PEUjXQN0qpjrEZy7r0CC2uLKh6ozPYsYamcqQrE+ZKg1falZuuWGFN8bysJMba+xxArX76s3aNpnx/kf/qZq5LR6sMtHTkuo="
-    app: siget-equipo3
-  on: 
+    secure: 0TQAQFc0C5yvv5V/5m4oiNJi7JQKVLhxNYdWxqg10GZSuBhlfb1StoxBRIx2Yww7rCSQcc4EhCGFyqjU0RkeW5WaoGBlaBRQKc8Ki9B20mB0gsYj2vFObDc4oP73h8+C8eos9gvgLu3zn2x0iwlFT8A9e4GWyh0+bynOXKRgbzu6Fmulb/IKtIQBl9EZwzg8ds9MI1AMdUzalR+1u29RPnj2qPs2IBZwKH3d/hBCIALbnKy3dg4S/8O5C17HZcP5Y09/ZDgjfOtpoi/YHJAyIeBOtQn39Ip/NLrxmDkl2aEEdJ6H2wGf+R4IOOz7kkdvIB3+UzyLjEi3YXL5IJZM4s0l2Fu9WLqB5czMqMm99HrVrOd/9jUiyUQL5ZvPc6XJwiO1fWCzkcH83hhAts7bFn3BESS5qserYQmHWXx2hHHL0pwreDJYVbR8jM44qdc5SJAw/+2tFJQhSVpyHmWtIKyHHfMa4WVgQbQrtRuOIDp9UYSGM3G+xgw5fTGFdgC1bJXSL8q996zbCVto/XUrm8icos7Dw6qnGNcp8hz7cJ4mG2ZwWLbZQU4P4Z8qtOYbJm1cU+r3ooqeslHsGcVbUZFdpV1GDiUr09Cu3Yh5qWh41QtP3MbeBpOKbf6xa/kWocWJR628c01wn/VFYWvHgVNyzyXU+knJoagB1TCwZTw=
+  on:
     branch: develop
